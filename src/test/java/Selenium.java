@@ -4,22 +4,27 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.Random;
 
 public class Selenium {
     //Criar instancia do driver do chrome
-    private WebDriver driver = new ChromeDriver();
+    private static WebDriver driver = new ChromeDriver();
+    private WebDriverWait wait = new WebDriverWait(driver,100);
 
     @BeforeAll
-    public void setup(){
+    public static void setup(){
         //Setar as propriedades do chrome Driver
         System.setProperty("./src/main/resources/chromedriver","chromedriver");
         //Abrir browser e acessar a URL
         driver.get("https://automacaocombatista.herokuapp.com");
         //Maximizando o Browser Windows
         //driver.manage().window().maximize();
-
         driver.findElement(By.xpath("//a[text()='Começar Automação Web']")).click();
         //Maximizando o Browser Mac/Linux
         driver.manage().window().fullscreen();
@@ -55,14 +60,17 @@ public class Selenium {
 
     @Test
     public void radioCheckBox(){
+
         driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
-        driver.findElement(By.xpath("//a[text()='Radio e Checkbox']")).click();
-        
+
+        WebElement link = driver.findElement(By.xpath("//a[text()='Radio e Checkbox']"));
+        wait.until(ExpectedConditions.visibilityOf(link));
+        link.click();
 
     }
 
     @AfterAll
-    public void fecharBrowser(){
+    public static void fecharBrowser(){
         //Fechando meu navagador
         driver.quit();
     }
