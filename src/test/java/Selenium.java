@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,13 +13,15 @@ import java.util.Random;
 
 public class Selenium {
     //Criar instancia do driver do chrome
-    private static WebDriver driver = new ChromeDriver();
-    private WebDriverWait wait = new WebDriverWait(driver,100);
+    private static WebDriver driver;
+    private static WebDriverWait wait;
 
     @BeforeAll
     public static void setup(){
         //Setar as propriedades do chrome Driver
         System.setProperty("./src/main/resources/chromedriver","chromedriver");
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver,100);
         //Abrir browser e acessar a URL
         driver.get("https://automacaocombatista.herokuapp.com");
         //Maximizando o Browser Windows
