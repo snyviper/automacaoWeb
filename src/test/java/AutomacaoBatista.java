@@ -3,15 +3,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
-public class Selenium {
+public class AutomacaoBatista {
     //Criar instancia do driver do chrome
     private static WebDriver driver;
     private static WebDriverWait wait;
@@ -21,7 +23,7 @@ public class Selenium {
         //Setar as propriedades do chrome Driver
         System.setProperty("./src/main/resources/chromedriver","chromedriver");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver,100);
+        wait = new WebDriverWait(driver,90);
         //Abrir browser e acessar a URL
         driver.get("https://automacaocombatista.herokuapp.com");
         //Maximizando o Browser Windows
@@ -32,14 +34,20 @@ public class Selenium {
     }
 
     @Test
-    public void criarUsuario(){
+    public void criarUsuario() {
 
         Random random = new Random();
         String email = random.nextInt(10000)+"@bootcamp.com.br";
 
         //Identificando um elemento e preenchendo o campo com um texto
         driver.findElement(By.xpath("//a[text()='Formulário']")).click();
+        //Thread.sleep(30000); má pratica
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Criar Usuários']")));
+
         driver.findElement(By.xpath("//a[text()='Criar Usuários']")).click();
+
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("user_name")));
         driver.findElement(By.id("user_name")).sendKeys("Marcos");
         driver.findElement(By.id("user_lastname")).sendKeys("Barbosa");
         driver.findElement(By.id("user_email")).sendKeys(email);
@@ -70,6 +78,35 @@ public class Selenium {
 
     }
 
+    @Test
+    public void select(){
+        driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Dropdown e Select']")));
+
+        driver.findElement(By.xpath("//a[text()='Dropdown e Select']")).click();
+
+        driver.findElement(By.xpath("//label[text()='Desenho Favorito']/preceding-sibling::div[@class='select-wrapper']")).click();
+        driver.findElement(By.xpath("//span[text()='Dragon Ball']")).click();
+
+        driver.findElement(By.xpath("//span[text()='Ronaldinho Gaucho']/ancestor::ul/preceding-sibling::input")).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Ronaldinho Gaucho']")));
+        driver.findElement(By.xpath("//span[text()='Ronaldinho Gaucho']")).click();
+
+        WebElement segundoCombo1 = driver.findElement(By.xpath("//span[text()='Ronaldinho Gaucho']/ancestor::ul/preceding-sibling::input"));
+
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+
+        js.executeScript("arguments[0].click();", segundoCombo1);
+
+        WebElement listaSelecao = driver.findElement(By.xpath("//select[@id='dropdown']"));
+        Select listaDesenhoFavorito = new Select(listaSelecao);
+
+        listaDesenhoFavorito.selectByIndex(1);
+
+//        listaDesenhoFavorito.selectByValue("3");
+//
+//        listaDesenhoFavorito.selectByVisibleText("Internet Explorer");
+    }
     @AfterAll
     public static void fecharBrowser(){
         //Fechando meu navagador

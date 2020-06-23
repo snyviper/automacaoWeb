@@ -9,10 +9,10 @@
     <version>1.0-SNAPSHOT</version>
 
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+    <!-- https://mvnrepository.com/artifact/org.seleniumhq.automacaoBatista/automacaoBatista-java -->
     <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
+        <groupId>org.seleniumhq.automacaoBatista</groupId>
+        <artifactId>automacaoBatista-java</artifactId>
         <version>3.141.59</version>
     </dependency>
 
