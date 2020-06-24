@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = { "pretty",
 		"json:target/cucumber.json" }, features = { "/Users/marcosBarbosa/Documents/automacaoWeb/src/test/resources/features" }, glue = {
 				"br.com.bootcamp.steps.web","br.com.bootcamp.settings" },
-        tags = "@compra")
+        tags = "@web")
 
 
 public class RunTest extends BaseTest {

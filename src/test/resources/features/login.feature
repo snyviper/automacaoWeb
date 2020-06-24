@@ -2,6 +2,7 @@
 #encoding: UTF-8
 #author: marcos.barbosa
 
+  @web
   Funcionalidade: Login
 
     Cenario: Realizar Login com sucesso
