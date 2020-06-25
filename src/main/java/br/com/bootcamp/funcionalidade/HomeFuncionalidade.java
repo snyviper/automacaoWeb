@@ -3,12 +3,11 @@ package br.com.bootcamp.funcionalidade;
 import br.com.bootcamp.pages.HomePage;
 import br.com.bootcamp.settings.BaseTest;
 
-public class HomeFuncionalidade extends BaseTest {
+public class HomeFuncionalidade extends BaseTest{
 
-    private HomePage home;
+    private HomePage homePage;
 
     public HomeFuncionalidade(){
-        this.home = new HomePage(webDriver);
+        this.homePage = new HomePage(webDriver);
     }
-
 }

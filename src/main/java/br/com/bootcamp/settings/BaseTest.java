@@ -9,7 +9,7 @@ public class BaseTest {
     protected static WebDriver webDriver;
     protected static WebDriverWait wait;
 
-    protected void initializeWebApplication(BrowserImp webApplication) {
+    protected void initializeWebApplication(BrowserImp webApplication){
         if(webDriver != null)
             webDriver.close();
         webDriver = webApplication.getDriver();
