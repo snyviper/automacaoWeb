@@ -1,0 +1,120 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      },
+      {
+        "line": 2,
+        "value": "#enconding: UTF-8"
+      },
+      {
+        "line": 3,
+        "value": "#author: mizael.bragatti"
+      },
+      {
+        "line": 4,
+        "value": "#date: 03/07/2020"
+      },
+      {
+        "line": 5,
+        "value": "#version: 1.0"
+      }
+    ],
+    "line": 6,
+    "elements": [
+      {
+        "line": 9,
+        "name": "Realizar login na aplicacao com usuario cadastrado",
+        "description": "",
+        "id": "validar-login-da-aplicacao;realizar-login-na-aplicacao-com-usuario-cadastrado",
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 162376500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que clico no botao \"Entre ou Cadastre-se\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Entre ou Cadastre-se",
+                  "offset": 20
+                }
+              ],
+              "location": "HomeSteps.queClicoNoBotao(String)"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 40954100,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "preencho os dados de login com usuario \"cadastrado\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "cadastrado",
+                  "offset": 40
+                }
+              ],
+              "location": "LoginSteps.preenchoOsDadosDeLoginComUsuário(String)"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 62900,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "clico em \"Continuar\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Continuar",
+                  "offset": 10
+                }
+              ],
+              "location": "LoginSteps.clicoEm(String)"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 27500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "visualizo a tela inicial com meu usuario logado",
+            "match": {
+              "location": "HomeSteps.visualizoATelaInicialComMeuUsuarioLogado()"
+            },
+            "keyword": "Entao "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@login"
+          },
+          {
+            "line": 8,
+            "name": "@web"
+          }
+        ]
+      }
+    ],
+    "name": "Validar Login da aplicacao",
+    "description": "",
+    "id": "validar-login-da-aplicacao",
+    "keyword": "Funcionalidade",
+    "uri": "Login.feature"
+  }
+]
