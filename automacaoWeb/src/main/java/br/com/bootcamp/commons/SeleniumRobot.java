@@ -1,138 +1,124 @@
-package br.com.bootcamp.commons;
+package br.com.bootcamp.bean.commons;
 
+import br.com.bootcamp.settings.BaseTest;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-import br.com.bootcamp.settings.BaseTest;
-
 public class SeleniumRobot extends BaseTest {
 
 	/**
-	 * Clicar em um botao através de JavaScriptExecutor
-	 * 
-	 * @param elemento Insira o elemento que você deseja clicar
+	 * Clicar em um botÃ£o atravÃ©s de JavaScriptExecutor
+	 * @param elemento Insira o elemento que vocÃª deseja clicar.
 	 */
-	public void clicaBotaoJS(WebElement elemento) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+	public void clicaBotaoJS(WebElement elemento){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
 		js.executeScript("arguments[0].click();", elemento);
 	}
 
+	public void clicaBotaoPorTexto(String texto){
+		webDriver.findElement(By.xpath("//*[text()='"+texto+"']")).click();
+	}
+
 	/**
-	 * Marcar um checkbox através de JavaScriptExecutor
-	 * 
-	 * @param id Insira o id do elemento que você quer marcar
-	 * 
+	 * Insere um texto no campo atravÃ©s de JavaScriptExecutor
+	 * @param elemento Insira o elemento onde vocÃª deseja preencher no campo
+	 * @param valor Insira o valor que vocÃª deseja preencher no campo
 	 */
-	public void selecionaCheckBox(String id) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
-		js.executeScript("document.getElementById('" + id + "');");
+	public void insireTextoNoElementoJS(WebElement elemento, String valor){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
+		js.executeScript("arguments[0].value='"+valor+"';", elemento);
+	}
+	/**
+	 * Marcar um checkbox atravÃ©s de JavaScriptExecutor
+	 * @param id Insira o id do elemento que vocÃª quer marcar
+	 */
+	public void selecionaCheckBoxJS(String id){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
+		js.executeScript("document.getElementById('"+ id +"').checked=true;");
 	}
 
 	/**
 	 * Retorna o valor de texto que existe no elemento
-	 * 
-	 * @param elemento Insira o elemento que você deseja capturar
+	 * @param elemento Insira o elemento que vocÃª deseja capturar o texto
 	 * @return Retorna o valor de texto do elemento
 	 */
-	public String pegarValorTexto(WebElement elemento) {
+	public String pegarValorTexto(WebElement elemento){
 		return elemento.getText();
 	}
 
 	/**
-	 * Valida se o texto atual é igual ao texto esperado
-	 * 
-	 * @param atual    Insira o valor do texto atual
+	 * Valida se o texto atual Ã© igual ao texto esperado
+	 * @param atual Insira o valor do texto atual
 	 * @param esperado Insira o valor do texto esperado
 	 * @return Retorna verdadeiro ou falso
 	 */
-	public boolean validaTexto(String atual, String esperado) {
+	public boolean validaTexto(String atual, String esperado){
 		return atual.equals(esperado);
 	}
 
 	/**
-	 * Realiza o Scroll da página até encontrar o elemento. (Obs. Elemento precisa
-	 * existir na página)
-	 * 
-	 * @param elemento Insira o elemento
-	 * @return Retorna verdadeiro ou falso
+	 * Realiza o Scroll da pÃ¡gina atÃ© encontrar o elemento.(Obs: Elemento precisa existir na pÃ¡gina)
+	 * @param elemento
 	 */
-	public void scrollAteOElemento(WebElement elemento) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+	public void scrollAteOElementoJS(WebElement elemento){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
 		js.executeScript("arguments[0].scrollIntoView();", elemento);
 	}
 
 	/**
-	 * Realiza o Scroll da página até o final da página
-	 * 
-	 * @param elemento Insira o elemento
+	 * Realiza Scroll ate o fim da pÃ¡gina
 	 */
-	public void scrollAteFimDaPagina(WebElement elemento) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+	public void scrollAteFimDaPaginaJS(){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
 
 	/**
-	 * Realiza o Scroll da página até o inicio da página
-	 * 
-	 * @param elemento Insira o elemento
+	 * Realiza Scroll ate o topo da pÃ¡gina
 	 */
-	public void scrollAteInicioDaPagina(WebElement elemento) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+	public void scrollAteTopoDaPaginaJS(){
+		JavascriptExecutor js = (JavascriptExecutor)webDriver;
 		js.executeScript("window.scrollTo(0, document.body.scrollTop)");
 	}
 
 	/**
 	 * Espera o elemento estar clicavel na tela
-	 * 
 	 * @param elemento
 	 */
-	public void esperaElementoSerClicavel(WebElement elemento) {
+	public void esperaElementoSerClicavel(WebElement elemento){
 		wait.until(ExpectedConditions.elementToBeClickable(elemento));
 	}
 
 	/**
-	 * Seleciona um item na lista através do Text que está visível
-	 * 
-	 * @param elemento Elemento pai da Lista de seleção
-	 * @param texto    Texto no qual o comando deve clicar
+	 * Seleciona um item na lista atravÃ©s do Texto que estÃ¡ visivel na lista
+	 * @param elemento Elemento pai da Lista de seleÃ§Ã£o(id da tag select)
+	 * @param textoVisivel Texto no qual o comando deve clicar
 	 */
-	public void selecionaItemLista(WebElement elemento, String texto) {
+	public void selecionaItemLista(WebElement elemento, String textoVisivel){
 		Select lista = new Select(elemento);
-		lista.selectByVisibleText(texto);
+		lista.selectByVisibleText(textoVisivel);
 	}
 
 	/**
-	 * Seleciona um item atráves do Index
-	 * 
-	 * @param elemento Elemento pai da Lista de seleção
-	 * @param index    Posição do elemento na lista
+	 * Seleciona um item na lista atravÃ©s do Index
+	 * @param elemento Elemento pai da Lista de seleÃ§Ã£o(id da tag select)
+	 * @param index PosiÃ§Ã£o do elemento na lista
 	 */
-	public void selecionaItemLista(WebElement elemento, int index) {
+	public void selecionaItemLista(WebElement elemento, int index){
 		Select lista = new Select(elemento);
 		lista.selectByIndex(index);
 	}
 
 	/**
-	 * Seleciona um item na lista através do Valor
-	 * 
-	 * @param elemento Elemento pai da Lista de seleção (id da tag select)
-	 * @param valor    atributo value da tag option
+	 * Seleciona um item na lista atravÃ©s do Valor
+	 * @param elemento Elemento pai da Lista de seleÃ§Ã£o(id da tag select)
+	 * @param value Atributo value da tag option
 	 */
-	public void selecionaItemListaPorValor(WebElement elemento, String valor) {
+	public void selecionaItemListaPorValor(WebElement elemento, String value){
 		Select lista = new Select(elemento);
-		lista.selectByValue(valor);
+		lista.selectByValue(value);
 	}
-	
-	/**
-	 * Insere um texto no campo através de JavascriptExecutor
-	 * @param elemento Insira um elemento onde você deseja preencher no campo
-	 * @param valor Insira o valor que você deseja preencher no campo
-	 */
-	public void insereTextoNoElementoJS(WebElement elemento, String valor) {
-		JavascriptExecutor js = (JavascriptExecutor) webDriver;
-		js.executeScript("arguments[0].value='" + valor + "';", elemento);
-	}
-
 }

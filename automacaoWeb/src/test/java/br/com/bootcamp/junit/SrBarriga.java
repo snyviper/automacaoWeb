@@ -18,8 +18,8 @@ public class SrBarriga {
 		Random r = new Random();
 		String email = "" + r.nextInt(100);
 
-		// Clica no botão para cadastro
-		driver.findElement(By.xpath("//a[text()='Novo usuário?']")).click();
+		// Clica no botï¿½o para cadastro
+		driver.findElement(By.xpath("//a[text()='Novo usuï¿½rio?']")).click();
 
 		// Clica e preenche os campos Nome, Email e Senha
 		WebElement campoNome = driver.findElement(By.id("nome"));
@@ -34,10 +34,10 @@ public class SrBarriga {
 		campoSenha.click();
 		campoSenha.sendKeys("yaman#123");
 
-		// Clicar no botão Cadastrar
+		// Clicar no botï¿½o Cadastrar
 		driver.findElement(By.xpath("//input[@value='Cadastrar']")).click();
 
-		// Clica no botão para cadastro
+		// Clica no botï¿½o para cadastro
 		driver.findElement(By.xpath("//a[text()='Login']")).click();
 
 		WebElement campoEmailLogin = driver.findElement(By.id("email"));
@@ -48,12 +48,11 @@ public class SrBarriga {
 		campoSenhaLogin.click();
 		campoSenhaLogin.sendKeys("yaman#123");
 
-		// Clicar no botão Cadastrar
+		// Clicar no botï¿½o Cadastrar
 		driver.findElement(By.xpath("//button[text()='Entrar']")).click();
 
-//		
-//		driver.quit();
-//		
+		driver.quit();
+
 
 	}
 

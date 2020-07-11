@@ -15,6 +15,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Random;
+
+import static org.junit.Assert.assertEquals;
+
 public class Selenium {
 	private static WebDriver driver = new ChromeDriver();
 	private static WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -26,58 +30,58 @@ public class Selenium {
 		driver.get("https://automacaocombatista.herokuapp.com");
 	}
 	
-//	@Test
-//	public void criarUsuario() throws InterruptedException {
-//		driver.navigate().to("https://automacaocombatista.herokuapp.com/users/new");
-//		Random random = new Random();
-//		String email = "mizael"+random.nextInt(1000)+"@yaman.com.br";
-//				
-//		driver.findElement(By.id("user_name")).sendKeys("Mizael");
-//		
-//		driver.findElement(By.id("user_lastname")).sendKeys("Bragatti");
-//		
-//		driver.findElement(By.id("user_email")).sendKeys(email);
-//		
-//		driver.findElement(By.id("user_address")).sendKeys("R. São Celso, 71");
-//		
-//		driver.findElement(By.id("user_university")).sendKeys("FIAP");
-//		
-//		driver.findElement(By.id("user_profile")).sendKeys("Engenheiro de Testes I");
-//		
-//		driver.findElement(By.id("user_gender")).sendKeys("Masculino");
-//		
-//		driver.findElement(By.id("user_age")).sendKeys("31");
-//		
-//		driver.findElement(By.xpath("//input[@name=\"commit\"]")).click();
-//		
-//		String mensagem = driver.findElement(By.id("notice")).getText();
-//
-//		Assertions.assertEquals("Usuário Criado com sucesso", mensagem);
-//	}
+	@Test
+	public void criarUsuario() throws InterruptedException {
+		driver.navigate().to("https://automacaocombatista.herokuapp.com/users/new");
+		Random random = new Random();
+		String email = "mizael"+random.nextInt(1000)+"@yaman.com.br";
+
+		driver.findElement(By.id("user_name")).sendKeys("Mizael");
+
+		driver.findElement(By.id("user_lastname")).sendKeys("Bragatti");
+
+		driver.findElement(By.id("user_email")).sendKeys(email);
+
+		driver.findElement(By.id("user_address")).sendKeys("R. Sï¿½o Celso, 71");
+
+		driver.findElement(By.id("user_university")).sendKeys("FIAP");
+
+		driver.findElement(By.id("user_profile")).sendKeys("Engenheiro de Testes I");
+
+		driver.findElement(By.id("user_gender")).sendKeys("Masculino");
+
+		driver.findElement(By.id("user_age")).sendKeys("31");
+
+		driver.findElement(By.xpath("//input[@name=\"commit\"]")).click();
+
+		String mensagem = driver.findElement(By.id("notice")).getText();
+
+		assertEquals("Usuï¿½rio Criado com sucesso", mensagem);
+	}
 	
-//	@Test
-//	public void radioCheckBox() {
-//		
-//		
-//		
-//		driver.findElement(By.xpath("//a[text()='Começar Automação Web']")).click();
-//		
-//		driver.manage().window().maximize();
-//		driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
-//		WebElement radio = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Radio e Checkbox']")));
-//		radio.click();
-//		driver.findElement(By.xpath("//input[@id='red']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='yellow']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='purple']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='grey']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='black']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='white']/following-sibling::label")).click();
-//	}
+	@Test
+	public void radioCheckBox() {
+
+
+
+		driver.findElement(By.xpath("//a[text()='Comeï¿½ar Automaï¿½ï¿½o Web']")).click();
+
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
+		WebElement radio = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Radio e Checkbox']")));
+		radio.click();
+		driver.findElement(By.xpath("//input[@id='red']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='yellow']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='purple']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='grey']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='black']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='white']/following-sibling::label")).click();
+	}
 	
 	@Test
 	public void dropDownSelect() {
 
-		driver.findElement(By.xpath("//a[text()='Começar Automação Web']")).click();
+		driver.findElement(By.xpath("//a[text()='Comeï¿½ar Automaï¿½ï¿½o Web']")).click();
 		
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//a[text()='Busca de elementos']")).click();
@@ -98,16 +102,16 @@ public class Selenium {
 		WebElement segundoCombo = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Ronaldinho Gaucho']")));
 		segundoCombo.click();
 		
-//		WebElement terceiroCombo1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Ronaldinho Gaucho']/ancestor::ul/preceding-sibling::input")));
-//		segundoCombo1.click();
-//		WebElement terceiroCombo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Ronaldinho Gaucho']")));
-//		segundoCombo.click();
-		//driver.findElement(By.xpath("//div[@class='select-wrapper']//following-sibling::ul/child::li/child::span[text()='Naruto']")).click();
-//		driver.findElement(By.xpath("//input[@id='yellow']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='purple']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='grey']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='black']/following-sibling::label")).click();
-//		driver.findElement(By.xpath("//input[@id='white']/following-sibling::label")).click();
+		WebElement terceiroCombo1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Ronaldinho Gaucho']/ancestor::ul/preceding-sibling::input")));
+		segundoCombo1.click();
+		WebElement terceiroCombo = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Ronaldinho Gaucho']")));
+		segundoCombo.click();
+		driver.findElement(By.xpath("//div[@class='select-wrapper']//following-sibling::ul/child::li/child::span[text()='Naruto']")).click();
+		driver.findElement(By.xpath("//input[@id='yellow']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='purple']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='grey']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='black']/following-sibling::label")).click();
+		driver.findElement(By.xpath("//input[@id='white']/following-sibling::label")).click();
 	}
 	@After
 	public void fecharBrowser() {

@@ -1,32 +1,27 @@
 package br.com.bootcamp.web.steps;
 
-import br.com.bootcamp.commons.SeleniumRobot;
-import br.com.bootcamp.funcionalidade.LoginFuncionalidade;
-import cucumber.api.java.pt.Dado;
+import br.com.bootcamp.bean.commons.SeleniumRobot;
+import br.com.bootcamp.funcionalidade.web.LoginFuncionalidade;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Quando;
 
 public class LoginSteps {
-	
+
 	private LoginFuncionalidade loginFuncionalidade;
-	@SuppressWarnings("unused")
 	private SeleniumRobot seleniumRobot;
-	
+
 	public LoginSteps() {
 		this.loginFuncionalidade = new LoginFuncionalidade();
 		this.seleniumRobot = new SeleniumRobot();
 	}
-    @Dado("^preencho os dados de login com usuario \"([^\"]*)\"$")
-    public void preenchoOsDadosDeLoginComUsu�rio(String arg0) {
-    	this.loginFuncionalidade.preencherCredenciais();
-        
-    }
 
-    @Quando("^clico em \"([^\"]*)\"$")
-    public void clicoEm(String arg0){
-        // Write code here that turns the phrase above into concrete actions
-        //throw new PendingException();
-    }
+	@E("^preencho os dados de login com usuário \"([^\"]*)\"$")
+	public void preenchoOsDadosDeLoginComUsuário(String tipoUsuario) {
+		this.loginFuncionalidade.preencheCredenciais(tipoUsuario);
+	}
 
-
-
+	@Quando("^clico em \"([^\"]*)\"$")
+	public void clicoEm(String textoBotao) {
+		this.seleniumRobot.clicaBotaoPorTexto(textoBotao);
+	}
 }

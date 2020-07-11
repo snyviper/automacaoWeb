@@ -1,0 +1,6 @@
+br/com/bootcamp/mobile/steps/HomeSteps.class
+br/com/bootcamp/junit/SrBarriga.class
+br/com/bootcamp/web/steps/LoginSteps.class
+br/com/bootcamp/junit/Selenium.class
+br/com/bootcamp/web/steps/CadastroSteps.class
+br/com/bootcamp/web/steps/HomeSteps.class

@@ -6,13 +6,25 @@ public enum Credentials implements CredentialsImp{
 	
 	CADASTRADO{
 		@Override
-		public String usuario() {
+		public String usuarioCliente() {
 			return "email123@yaman.com.br";
 		}
 
 		@Override
-		public String senha() {
+		public String senhaCliente() {
 			return "senha1234";
+		}
+	},
+
+	EMAIL_INVALIDO {
+		@Override
+		public String usuarioCliente() {
+			return "invalido@email.com";
+		}
+
+		@Override
+		public String senhaCliente() {
+			return "1234Teste";
 		}
 	}
 	;
