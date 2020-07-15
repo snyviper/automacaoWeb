@@ -11,7 +11,12 @@ public enum Browser implements BrowserImp {
 	CHROME {
 		@Override
 		public WebDriver getDriver() {
-			System.setProperty("webdriver.chrome.driver", "chromedriver/chromedriver");
+			String os = System.getProperty("os.name").toLowerCase();
+			if (os.contains("windows")) {
+				System.setProperty("webdriver.chrome.driver", "chromedriver/chromedriver.exe");
+			} else if(os.contains("mac")){
+				System.setProperty("webdriver.chrome.driver", "chromedriver/chromedriver");
+			}
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("profile.default_content_setting_values.notifications", 2);
 			ChromeOptions options = new ChromeOptions();

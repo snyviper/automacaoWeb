@@ -1,4 +1,4 @@
-package br.com.bootcamp.bean.commons;
+package br.com.bootcamp.commons;
 
 import br.com.bootcamp.settings.BaseTest;
 import org.openqa.selenium.By;

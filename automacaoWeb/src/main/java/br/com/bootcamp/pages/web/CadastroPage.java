@@ -7,9 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CadastroPage {
 
-    public CadastroPage(WebDriver webDriver) {
-        PageFactory.initElements(webDriver,this);
-    }
+    public CadastroPage(WebDriver webDriver) { PageFactory.initElements(webDriver,this); }
 
     @FindBy(id = "gender-male")
     private WebElement rbGenderM;
@@ -34,6 +32,9 @@ public class CadastroPage {
 
     @FindBy(xpath = "//div[@class='result']")
     private WebElement msgResult;
+
+    @FindBy(xpath = "//a[@href='/']")
+    private WebElement imgHome;
 
     public WebElement getMsgResult() {
         return msgResult;
@@ -65,5 +66,9 @@ public class CadastroPage {
 
     public WebElement getBtnRegister() {
         return btnRegister;
+    }
+
+    public WebElement getImgHome() {
+        return imgHome;
     }
 }

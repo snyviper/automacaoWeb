@@ -1,6 +1,8 @@
 package br.com.bootcamp.funcionalidade.web;
 
-import br.com.bootcamp.bean.commons.SeleniumRobot;
+import br.com.bootcamp.commons.SeleniumRobot;
+//import br.com.bootcamp.enums.Credentials;
+import br.com.bootcamp.statics.Credentials;
 import br.com.bootcamp.pages.web.CadastroPage;
 import br.com.bootcamp.settings.BaseTest;
 import com.github.javafaker.Faker;
@@ -19,18 +21,20 @@ public class CadastroFuncionalidade extends BaseTest {
     }
 
     public void preencheDadosERegistra(){
-        String senha = this.faker.internet().password();
+        new Credentials(this.faker.internet().emailAddress(), this.faker.internet().password());
         wait.until(ExpectedConditions.elementToBeClickable(this.cadastroPage.getBtnRegister()));
         this.cadastroPage.getRbGenderM().click();
         this.cadastroPage.getTxtFirstName().sendKeys(this.faker.name().firstName());
         this.cadastroPage.getTxtLastName().sendKeys(this.faker.name().lastName());
-        this.cadastroPage.getTxtEmail().sendKeys(this.faker.internet().emailAddress());
-        this.cadastroPage.getTxtPassword().sendKeys(senha);
-        this.cadastroPage.getTxtConfirmPassword().sendKeys(senha);
+        this.cadastroPage.getTxtEmail().sendKeys(Credentials.getEmail());
+        this.cadastroPage.getTxtPassword().sendKeys(Credentials.getSenha());
+        this.cadastroPage.getTxtConfirmPassword().sendKeys(Credentials.getSenha());
         this.cadastroPage.getBtnRegister().click();
     }
 
     public String retornaMensagem(){
        return this.seleniumRobot.pegarValorTexto(this.cadastroPage.getMsgResult());
     }
+
+    public void voltarParaHomePage(){ this.cadastroPage.getImgHome().click(); }
 }

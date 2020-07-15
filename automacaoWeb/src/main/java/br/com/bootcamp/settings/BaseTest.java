@@ -10,7 +10,7 @@ import br.com.bootcamp.interfaces.BrowserImp;
 
 public class BaseTest {
 
-	protected static AndroidDriver<MobileElement> driver;
+	protected static AndroidDriver<MobileElement> mobileDriver;
 	protected static WebDriver webDriver;
 	protected static WebDriverWait wait;
 
@@ -19,15 +19,15 @@ public class BaseTest {
 			webDriver.close();
 
 		webDriver = webApplication.getDriver();
-		webDriver.manage().window().fullscreen();
 		webDriver.get("http://demowebshop.tricentis.com/");
+		webDriver.manage().window().maximize();
 		wait = new WebDriverWait(webDriver, 60);
 
 	}
 
 	protected void initializeMobileApplication(MobileApplicationImp mobileApplicationImp){
-		driver = mobileApplicationImp.getDriver();
-		wait = new WebDriverWait(driver, 60);
+		mobileDriver = mobileApplicationImp.getDriver();
+		wait = new WebDriverWait(mobileDriver, 60);
 	}
 
 
@@ -37,6 +37,6 @@ public class BaseTest {
 	}
 
 	protected static void closeMobile() {
-		driver.quit();
+		mobileDriver.quit();
 	}
 }

@@ -7,16 +7,16 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-	
-	public LoginPage(WebDriver webDriver) {
-		PageFactory.initElements(webDriver, this);
-	}
+	public LoginPage(WebDriver webDriver) { PageFactory.initElements(webDriver, this); }
 	
 	@FindBy(id="Email")
 	private WebElement txtEmail;
 	
 	@FindBy(id="Senha")
 	private WebElement txtSenha;
+
+	@FindBy(className = "button-1 login-button")
+	private WebElement btnLogIn;
 
 	public WebElement getTxtEmail() {
 		return txtEmail;
@@ -25,6 +25,6 @@ public class LoginPage {
 	public WebElement getTxtSenha() {
 		return txtSenha;
 	}
-	
-	
+
+	public WebElement getBtnLogIn() { return btnLogIn; }
 }

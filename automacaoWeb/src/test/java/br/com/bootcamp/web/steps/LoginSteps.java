@@ -1,6 +1,6 @@
 package br.com.bootcamp.web.steps;
 
-import br.com.bootcamp.bean.commons.SeleniumRobot;
+import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.LoginFuncionalidade;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Quando;
@@ -15,13 +15,13 @@ public class LoginSteps {
 		this.seleniumRobot = new SeleniumRobot();
 	}
 
-	@E("^preencho os dados de login com usuário \"([^\"]*)\"$")
-	public void preenchoOsDadosDeLoginComUsuário(String tipoUsuario) {
-		this.loginFuncionalidade.preencheCredenciais(tipoUsuario);
+	@E("^preencho os dados de login com Credentials$")
+	public void preenchoOsDadosDeLoginComUsuário() {
+		this.loginFuncionalidade.preencheCredenciais();
 	}
 
-	@Quando("^clico em \"([^\"]*)\"$")
-	public void clicoEm(String textoBotao) {
-		this.seleniumRobot.clicaBotaoPorTexto(textoBotao);
+	@Quando("^clico no botao Log in$")
+	public void clicoEmLogIn() {
+		this.loginFuncionalidade.clickLogIn();
 	}
 }

@@ -1,0 +1,280 @@
+[
+  {
+    "comments": [
+      {
+        "line": 1,
+        "value": "#language: pt"
+      },
+      {
+        "line": 2,
+        "value": "#encoding: UTF-8"
+      },
+      {
+        "line": 3,
+        "value": "#author: gustavo.costa"
+      },
+      {
+        "line": 4,
+        "value": "#date: 14/07/2020"
+      },
+      {
+        "line": 5,
+        "value": "#version: 1.0"
+      }
+    ],
+    "line": 7,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 11524372695,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeWeb()"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Realizar a compra do primeiro item da home page",
+        "description": "",
+        "id": "realizar-uma-compra-no-site;realizar-a-compra-do-primeiro-item-da-home-page",
+        "after": [
+          {
+            "result": {
+              "duration": 855562012,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterWeb()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Cenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 822397168,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "que clico no botao \"Register\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Register",
+                  "offset": 20
+                }
+              ],
+              "location": "HomeSteps.queClicoNoBotao(String)"
+            },
+            "keyword": "Dado "
+          },
+          {
+            "result": {
+              "duration": 2367841559,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "realizo o cadastro do cliente",
+            "match": {
+              "location": "CadastroSteps.realizoCadastroDoCliente()"
+            },
+            "keyword": "Quando "
+          },
+          {
+            "result": {
+              "duration": 662712492,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "volto para a home page",
+            "match": {
+              "location": "CadastroSteps.voltoParaHomePage()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 3950977199,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "adiciono os itens",
+            "match": {
+              "location": "HomeSteps.AdicionoOsItens()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1221899097,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "clico em Go to cart",
+            "match": {
+              "location": "HomeSteps.clicoEmGoToCart()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 117567243,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "verifico se o subtotal esta correto",
+            "match": {
+              "location": "CartSteps.verificoSubtotal()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1870454919,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "aceito os termos de servico e faco checkout",
+            "match": {
+              "location": "CartSteps.aceitoOsTermosEFacoCheckout()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1089306127,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "preencho o endereco e continuo",
+            "match": {
+              "location": "CheckoutSteps.preenchoOEnderecoEContinuo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1357561689,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "testo o pick up in store e continuo",
+            "match": {
+              "location": "CheckoutSteps.testoOPickUpEContinuo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 869152088,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "testo o shipping method e continuo",
+            "match": {
+              "location": "CheckoutSteps.testoOShippingMethodEContinuo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1005352596,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "testo o payment method e continuo",
+            "match": {
+              "location": "CheckoutSteps.testoOPaymentMethodEContinuo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 1529788380,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "preencho o payment information e continuo",
+            "match": {
+              "location": "CheckoutSteps.preenchoOPaymentInformationEContinuo()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 763668635,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "verifico o endereco e o metodo de pagamento e o metodo de entrega",
+            "match": {
+              "location": "ConfirmOrderSteps.verificoEnderecoEPagamento()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 244528697,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "verifico os produtos",
+            "match": {
+              "location": "ConfirmOrderSteps.verificoOsProdutos()"
+            },
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "duration": 84415982,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "clico em Continue para confirmar o pedido",
+            "match": {
+              "location": "ConfirmOrderSteps.clicoEmContinueParaConfirmar()"
+            },
+            "keyword": "Entao "
+          },
+          {
+            "result": {
+              "duration": 1413908237,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "visualizo a mensagem \"Your order has been successfully processed!\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Your order has been successfully processed!",
+                  "offset": 22
+                }
+              ],
+              "location": "ConfirmOrderSteps.visualizoAMensagemNaTela(String)"
+            },
+            "keyword": "E "
+          }
+        ],
+        "tags": [
+          {
+            "line": 9,
+            "name": "@cadastroCompraWeb"
+          },
+          {
+            "line": 9,
+            "name": "@web"
+          }
+        ]
+      }
+    ],
+    "name": "Realizar uma compra no site",
+    "description": "",
+    "id": "realizar-uma-compra-no-site",
+    "keyword": "Funcionalidade",
+    "uri": "web/Compra.feature"
+  }
+]

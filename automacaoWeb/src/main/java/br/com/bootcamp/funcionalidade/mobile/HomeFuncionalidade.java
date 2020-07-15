@@ -10,7 +10,7 @@ public class HomeFuncionalidade extends BaseTest {
     private HomePage homePage;
 
     public HomeFuncionalidade() {
-        this.homePage = new HomePage(driver);
+        this.homePage = new HomePage(mobileDriver);
     }
 
     public void selecionaMenu(String menu){

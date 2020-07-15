@@ -1,15 +1,21 @@
 package br.com.bootcamp.web.steps;
 
-import br.com.bootcamp.bean.commons.SeleniumRobot;
+import br.com.bootcamp.commons.SeleniumRobot;
+import br.com.bootcamp.statics.Credentials;
+import br.com.bootcamp.funcionalidade.web.HomeFuncionalidade;
+import br.com.bootcamp.pages.web.HomePage;
 import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 
 public class HomeSteps {
 
-        private SeleniumRobot seleniumRobot;
+    private SeleniumRobot seleniumRobot;
+    private HomeFuncionalidade homeFuncionalidade;
 
     public HomeSteps() {
         this.seleniumRobot = new SeleniumRobot();
+        this.homeFuncionalidade = new HomeFuncionalidade();
     }
 
     @Dado("^que clico no botao \"([^\"]*)\"$")
@@ -22,4 +28,21 @@ public class HomeSteps {
         seleniumRobot.clicaBotaoPorTexto("Teste");
     }
 
+    @Entao("^visualizo o email na tela$")
+    public void visualizoAMensagemNaTela(){
+        this.seleniumRobot.validaTexto(homeFuncionalidade.getBtnEmail(), Credentials.getEmail());
+    }
+
+    @E("^adiciono os itens$")
+    public void AdicionoOsItens(){
+        homeFuncionalidade.gravarSegundoItem();
+        homeFuncionalidade.clicarNoSegundoItem();
+        homeFuncionalidade.gravarTerceiroItem();
+        homeFuncionalidade.clicarNoTerceiroItem();
+    }
+
+    @E("^clico em Go to cart$")
+    public void clicoEmGoToCart(){
+        seleniumRobot.clicaBotaoJS(homeFuncionalidade.getBtnGoToCart());
+    }
 }
