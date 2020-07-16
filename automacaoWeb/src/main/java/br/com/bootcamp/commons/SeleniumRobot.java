@@ -1,6 +1,7 @@
 package br.com.bootcamp.commons;
 
 import br.com.bootcamp.settings.BaseTest;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -55,8 +56,8 @@ public class SeleniumRobot extends BaseTest {
 	 * @param esperado Insira o valor do texto esperado
 	 * @return Retorna verdadeiro ou falso
 	 */
-	public boolean validaTexto(String atual, String esperado){
-		return atual.equals(esperado);
+	public void validaTexto(String atual, String esperado){
+		Assert.assertEquals(esperado, atual);
 	}
 
 	/**

@@ -29,7 +29,7 @@ public class HomeSteps {
 
     @Entao("^visualizo o email na tela$")
     public void visualizoAMensagemNaTela(){
-        this.seleniumRobot.validaTexto(homeFuncionalidade.getBtnEmail(), Credentials.getEmail());
+        seleniumRobot.validaTexto(homeFuncionalidade.getBtnEmail(), Credentials.getEmail());
     }
 
     @E("^adiciono os itens$")

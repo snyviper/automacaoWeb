@@ -24,7 +24,7 @@ public class HomeFuncionalidade extends BaseTest{
 				Float.parseFloat(homePage.getTxtSecondProductPrice().getText()));
 	}
 	public void clicarNoSegundoItem(){
-		seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartSecondItem());
+		//seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartSecondItem());
 		homePage.getBtnAddToCartSecondItem().click();
 	}
 
@@ -34,17 +34,15 @@ public class HomeFuncionalidade extends BaseTest{
 				Float.parseFloat(homePage.getTxtThirdProductPrice().getText()));
 	}
 	public void clicarNoTerceiroItem(){
-		seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartThirdItem());
+		//seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartThirdItem());
 		wait.until(ExpectedConditions.invisibilityOf(homePage.getImgLoading()));
 		homePage.getBtnAddToCartThirdItem().click();
-		seleniumRobot.esperaElementoSerClicavel(homePage.getRdBtnSlow());
+		wait.until(ExpectedConditions.elementToBeClickable(homePage.getRdBtnSlow()));
 		homePage.getRdBtnSlow().click();
 		seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartSlow());
 		homePage.getBtnAddToCartSlow().click();
 	}
-	public String getBtnEmail(){
-		return homePage.getBtnEmail().getText();
-	}
+	public String getBtnEmail(){ return homePage.getBtnEmail().getText(); }
 
 	public WebElement getBtnGoToCart(){
 		return homePage.getBtnGoToCart();

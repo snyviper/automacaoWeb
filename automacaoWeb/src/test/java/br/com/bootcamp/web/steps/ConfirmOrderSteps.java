@@ -1,17 +1,14 @@
 package br.com.bootcamp.web.steps;
 
-import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.ConfirmOrderFuncionalidade;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 
 public class ConfirmOrderSteps {
 
-    private SeleniumRobot seleniumRobot;
     private ConfirmOrderFuncionalidade confirmOrderFuncionalidade;
 
     public ConfirmOrderSteps() {
-        this.seleniumRobot = new SeleniumRobot();
         this.confirmOrderFuncionalidade = new ConfirmOrderFuncionalidade();
     }
 

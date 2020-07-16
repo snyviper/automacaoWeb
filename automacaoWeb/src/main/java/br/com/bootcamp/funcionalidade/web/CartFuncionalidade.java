@@ -9,6 +9,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.Scanner;
+
 public class CartFuncionalidade extends BaseTest {
 
     private CartPage cartPage;
@@ -31,11 +33,8 @@ public class CartFuncionalidade extends BaseTest {
     }
 
     public void compararPrecoTotal(){
-        seleniumRobot.forceSleep(250);
+        wait.until(ExpectedConditions.and(ExpectedConditions.elementToBeClickable(cartPage.getTxtPriceProduct2()),
+                ExpectedConditions.elementToBeClickable(cartPage.getTxtSubTotal())));
         Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(cartPage.getTxtSubTotal().getText()),0.0024);
-    }
-
-    public WebElement getTxtSubTotal(){
-        return cartPage.getTxtSubTotal();
     }
 }

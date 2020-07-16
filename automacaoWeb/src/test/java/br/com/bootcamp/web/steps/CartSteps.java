@@ -15,7 +15,6 @@ public class CartSteps {
 
     @E("^verifico se o subtotal esta correto$")
     public void verificoSubtotal(){
-        seleniumRobot.esperaElementoSerClicavel(cartFuncionalidade.getTxtSubTotal());
         cartFuncionalidade.compararPrecoTotal();
     }
 
