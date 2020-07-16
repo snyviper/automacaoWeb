@@ -5,6 +5,7 @@ import br.com.bootcamp.pages.web.ConfirmOrderPage;
 import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.OrderData;
 import br.com.bootcamp.statics.Products;
+import org.junit.Assert;
 
 public class ConfirmOrderFuncionalidade extends BaseTest{
 
@@ -16,46 +17,45 @@ public class ConfirmOrderFuncionalidade extends BaseTest{
         this.seleniumRobot = new SeleniumRobot();
     }
 
-    public boolean verifyBillingColumn(){
+    public void verifyBillingColumn(){
         seleniumRobot.esperaElementoSerClicavel(this.confirmOrderPage.getTxtBillingPhone());
-        return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtBillingPhone().getText(), OrderData.getPhoneNumber()) &&
-                this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtBillingAddress().getText(), OrderData.getAddress()) &&
-                this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtBillingCountry().getText(), OrderData.getCountry());
+        Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), this.confirmOrderPage.getTxtBillingPhone().getText());
+        Assert.assertEquals(OrderData.getAddress(), this.confirmOrderPage.getTxtBillingAddress().getText());
+        Assert.assertEquals(OrderData.getCountry(), this.confirmOrderPage.getTxtBillingCountry().getText());
     }
 
-    public boolean verifyShippingColumn(){
+    public void verifyShippingColumn(){
         if(!OrderData.isPickUpInStore()){
-            return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtShippingPhone().getText(), OrderData.getPhoneNumber()) &&
-                    this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtShippingAddress().getText(), OrderData.getAddress()) &&
-                    this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtShippingCountry().getText(), OrderData.getCountry());
+            Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), this.confirmOrderPage.getTxtShippingPhone().getText());
+            Assert.assertEquals(OrderData.getAddress(), this.confirmOrderPage.getTxtShippingAddress().getText());
+            Assert.assertEquals(OrderData.getCountry(), this.confirmOrderPage.getTxtShippingCountry().getText());
         }
-        return true;
     }
 
-    public boolean verifyPaymentMethod(){
-        return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtPaymentMethod().getText(), OrderData.getPaymentMethod());
+    public void verifyPaymentMethod(){
+        Assert.assertEquals(OrderData.getPaymentMethod(), this.confirmOrderPage.getTxtPaymentMethod().getText());
     }
 
-    public boolean verifyShippingMethod(){
-        return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtShippingMethod().getText(), OrderData.getShippingMethod());
+    public void verifyShippingMethod(){
+        Assert.assertEquals(OrderData.getShippingMethod(), this.confirmOrderPage.getTxtShippingMethod().getText());
     }
 
-    public boolean verifyProducts(){
+    public void verifyProducts(){
         this.seleniumRobot.esperaElementoSerClicavel(this.confirmOrderPage.getTxtProduct2Name());
-        return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtProduct1Name().getText(), Products.getName1()) &&
-                this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtProduct2Name().getText(), Products.getName2()) &&
-                Float.parseFloat(this.confirmOrderPage.getTxtProduct1Price().getText()) == Products.getPrice1() &&
-                Float.parseFloat(this.confirmOrderPage.getTxtProduct2Price().getText()) == Products.getPrice2() &&
-                Float.parseFloat(this.confirmOrderPage.getTxtSubTotal().getText()) == Products.getSubTotal();
+        Assert.assertEquals(Products.getName1(), this.confirmOrderPage.getTxtProduct1Name().getText());
+        Assert.assertEquals(Products.getName2(), this.confirmOrderPage.getTxtProduct2Name().getText());
+        Assert.assertEquals(Products.getPrice1(), Float.parseFloat(this.confirmOrderPage.getTxtProduct1Price().getText()), 0.0049);
+        Assert.assertEquals(Products.getPrice2(), Float.parseFloat(this.confirmOrderPage.getTxtProduct2Price().getText()), 0.0049);
+        Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(this.confirmOrderPage.getTxtSubTotal().getText()), 0.0049);
     }
 
     public void confirmOrder(){
         this.confirmOrderPage.getBtnConfirmOrder().click();
     }
 
-    public boolean verifySuccess(String textoSucesso){
+    public void verifySuccess(String textoSucesso){
         this.seleniumRobot.esperaElementoSerClicavel(this.confirmOrderPage.getTxtSuccess());
-        return this.seleniumRobot.validaTexto(this.confirmOrderPage.getTxtSuccess().getText(), textoSucesso);
+        Assert.assertEquals(textoSucesso, this.confirmOrderPage.getTxtSuccess().getText());
     }
 
 }
