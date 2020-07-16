@@ -6,6 +6,7 @@ import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.OrderData;
 import br.com.bootcamp.statics.Products;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConfirmOrderFuncionalidade extends BaseTest{
@@ -44,18 +45,31 @@ public class ConfirmOrderFuncionalidade extends BaseTest{
     }
 
     public void verifyProducts(){
-        seleniumRobot.esperaElementoSerClicavel(confirmOrderPage.getTxtProduct2Name());
+        wait.until(ExpectedConditions.elementToBeClickable(confirmOrderPage.getTxtProduct2Name()));
         Assert.assertEquals(Products.getName1(), confirmOrderPage.getTxtProduct1Name().getText());
         Assert.assertEquals(Products.getName2(), confirmOrderPage.getTxtProduct2Name().getText());
         Assert.assertEquals(Products.getPrice1(), Float.parseFloat(confirmOrderPage.getTxtProduct1Price().getText()), 0.0024);
         Assert.assertEquals(Products.getPrice2(), Float.parseFloat(confirmOrderPage.getTxtProduct2Price().getText()), 0.0024);
         Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()), 0.0024);
+        if(webDriver.findElements(By.xpath(confirmOrderPage.getTxtFeeTaxXPath())).size() > 0){
+            Assert.assertEquals(Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()) +
+                            Float.parseFloat(confirmOrderPage.getTxtFeeShipping().getText()) +
+                            Float.parseFloat(confirmOrderPage.getTxtFeePaymentMethod().getText()) +
+                            Float.parseFloat(confirmOrderPage.getTxtFeeTax().getText()),
+                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()),0.0024);
+        }
+        else{
+            Assert.assertEquals(Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()) +
+                            Float.parseFloat(confirmOrderPage.getTxtFeeShipping().getText()) +
+                            Float.parseFloat(confirmOrderPage.getTxtFeePaymentMethod().getText()),
+                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()),0.0024);
+        }
     }
 
     public void confirmOrder(){ confirmOrderPage.getBtnConfirmOrder().click(); }
 
     public void verifySuccess(String textoSucesso){
-        this.seleniumRobot.esperaElementoSerClicavel(confirmOrderPage.getTxtSuccess());
+        seleniumRobot.esperaElementoSerClicavel(confirmOrderPage.getTxtSuccess());
         Assert.assertEquals(textoSucesso, confirmOrderPage.getTxtSuccess().getText());
     }
 

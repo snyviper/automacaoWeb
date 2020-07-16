@@ -1,5 +1,6 @@
 package br.com.bootcamp.funcionalidade.web;
 
+import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.pages.web.CartPage;
 import br.com.bootcamp.settings.BaseTest;
 //import br.com.bootcamp.commons.SeleniumRobot;
@@ -11,8 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CartFuncionalidade extends BaseTest {
 
     private CartPage cartPage;
+    private SeleniumRobot seleniumRobot;
 
-    public CartFuncionalidade(){ this.cartPage = new CartPage(webDriver); }
+    public CartFuncionalidade(){
+        this.cartPage = new CartPage(webDriver);
+        this.seleniumRobot = new SeleniumRobot();
+    }
 
     public void aceitarEFazerCheckout(){
         cartPage.getChkBxTermsOfService().click();
@@ -26,6 +31,7 @@ public class CartFuncionalidade extends BaseTest {
     }
 
     public void compararPrecoTotal(){
+        seleniumRobot.forceSleep(250);
         Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(cartPage.getTxtSubTotal().getText()),0.0024);
     }
 

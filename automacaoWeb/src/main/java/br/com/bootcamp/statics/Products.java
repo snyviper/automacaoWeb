@@ -5,7 +5,7 @@ public class Products {
     static private String name2 = "";
     static private float price1 = 0;
     static private float price2 = 0;
-    static private float priceTotal = 0;
+    static private float priceSubTotal = 0;
 
     public Products(){}
     public Products(String name, float price){
@@ -13,13 +13,13 @@ public class Products {
         this.price1 = price;
         this.name2 = "";
         this.price2 = 0;
-        this.priceTotal = price;
+        this.priceSubTotal = price;
     }
     public static void addSecondProduct(String name, float price){
         if(name2.equals("")){
             name2 = name;
             price2 = price;
-            priceTotal += price;
+            priceSubTotal += price;
         }
     }
 
@@ -36,6 +36,6 @@ public class Products {
     public static float getPrice2() { return price2; }
 
     public static float getSubTotal() {
-        return priceTotal;
+        return priceSubTotal;
     }
 }

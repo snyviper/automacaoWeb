@@ -54,6 +54,19 @@ public class ConfirmOrderPage {
     @FindBy(xpath = "//table[@class='cart-total']/descendant::tr[1]/descendant::span[@class='product-price']")
     private WebElement txtSubTotal;
 
+    @FindBy(xpath = "//table[@class='cart-total']/descendant::tr[2]/descendant::span[@class='product-price']")
+    private WebElement txtFeeShipping;
+
+    @FindBy(xpath = "//table[@class='cart-total']/descendant::tr[3]/descendant::span[@class='product-price']")
+    private WebElement txtFeePaymentMethod;
+
+    @FindBy(xpath = "//table[@class='cart-total']/descendant::tr[4]/descendant::span[@class='product-price']")
+    private WebElement txtFeeTax;
+    private final String txtFeeTaxXPath = "//table[@class='cart-total']/descendant::tr[4]/descendant::span[@class='product-price']";
+
+    @FindBy(xpath = "//table[@class='cart-total']/descendant::strong")
+    private WebElement txtTotal;
+
     @FindBy(xpath = "//div[@id='confirm-order-buttons-container']/input")
     private WebElement btnConfirmOrder;
 
@@ -89,6 +102,16 @@ public class ConfirmOrderPage {
     public WebElement getTxtProduct2Price() { return txtProduct2Price; }
 
     public WebElement getTxtSubTotal() { return txtSubTotal; }
+
+    public WebElement getTxtFeeShipping() { return txtFeeShipping; }
+
+    public WebElement getTxtFeePaymentMethod() { return txtFeePaymentMethod; }
+
+    public WebElement getTxtFeeTax() { return txtFeeTax; }
+
+    public String getTxtFeeTaxXPath(){ return txtFeeTaxXPath; }
+
+    public WebElement getTxtTotal() { return txtTotal; }
 
     public WebElement getBtnConfirmOrder() { return btnConfirmOrder; }
 
