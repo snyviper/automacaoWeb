@@ -14,7 +14,7 @@
       E adiciono os itens
       E clico em Go to cart
       E verifico se o subtotal esta correto
-      E aceito os termos de servico e faco checkout
+      E testo e aceito os termos de servico e faco checkout
       E preencho o endereco e continuo
       E testo o pick up in store e continuo
       E testo o shipping method e continuo

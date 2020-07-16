@@ -7,6 +7,7 @@ import br.com.bootcamp.pages.web.LoginPage;
 import br.com.bootcamp.settings.BaseTest;
 
 public class LoginFuncionalidade extends BaseTest {
+
 	private LoginPage loginPage;
 
 	public LoginFuncionalidade() {

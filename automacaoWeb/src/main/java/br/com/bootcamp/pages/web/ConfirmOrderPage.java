@@ -15,6 +15,9 @@ public class ConfirmOrderPage {
     @FindBy(xpath = "//ul[@class='billing-info']/li[@class='address1']")
     private WebElement txtBillingAddress;
 
+    @FindBy(xpath = "//ul[@class='billing-info']/li[@class='city-state-zip']")
+    private WebElement txtBillingCityZip;
+
     @FindBy(xpath = "//ul[@class='billing-info']/li[@class='country']")
     private WebElement txtBillingCountry;
 
@@ -26,6 +29,9 @@ public class ConfirmOrderPage {
 
     @FindBy(xpath = "//ul[@class='shipping-info']/li[@class='address1']")
     private WebElement txtShippingAddress;
+
+    @FindBy(xpath = "//ul[@class='shipping-info']/li[@class='city-state-zip']")
+    private WebElement txtShippingCityZip;
 
     @FindBy(xpath = "//ul[@class='shipping-info']/li[@class='country']")
     private WebElement txtShippingCountry;
@@ -58,6 +64,8 @@ public class ConfirmOrderPage {
 
     public WebElement getTxtBillingAddress() { return txtBillingAddress; }
 
+    public WebElement getTxtBillingCityZip() { return txtBillingCityZip; }
+
     public WebElement getTxtBillingCountry() { return txtBillingCountry; }
 
     public WebElement getTxtPaymentMethod() { return txtPaymentMethod; }
@@ -65,6 +73,8 @@ public class ConfirmOrderPage {
     public WebElement getTxtShippingPhone() { return txtShippingPhone; }
 
     public WebElement getTxtShippingAddress() { return txtShippingAddress; }
+
+    public WebElement getTxtShippingCityZip() { return txtShippingCityZip; }
 
     public WebElement getTxtShippingCountry() { return txtShippingCountry; }
 

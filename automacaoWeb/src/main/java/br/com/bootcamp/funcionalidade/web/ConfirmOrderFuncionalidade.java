@@ -6,6 +6,7 @@ import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.OrderData;
 import br.com.bootcamp.statics.Products;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConfirmOrderFuncionalidade extends BaseTest{
 
@@ -18,7 +19,8 @@ public class ConfirmOrderFuncionalidade extends BaseTest{
     }
 
     public void verifyBillingColumn(){
-        seleniumRobot.esperaElementoSerClicavel(confirmOrderPage.getTxtBillingPhone());
+        wait.until(ExpectedConditions.elementToBeClickable(confirmOrderPage.getTxtBillingCityZip()));
+        Assert.assertEquals(OrderData.getCity() + " , " + OrderData.getZipCode(), confirmOrderPage.getTxtBillingCityZip().getText());
         Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), confirmOrderPage.getTxtBillingPhone().getText());
         Assert.assertEquals(OrderData.getAddress(), confirmOrderPage.getTxtBillingAddress().getText());
         Assert.assertEquals(OrderData.getCountry(), confirmOrderPage.getTxtBillingCountry().getText());
@@ -26,6 +28,7 @@ public class ConfirmOrderFuncionalidade extends BaseTest{
 
     public void verifyShippingColumn(){
         if(!OrderData.isPickUpInStore()){
+            Assert.assertEquals(OrderData.getCity() + " , " + OrderData.getZipCode(), confirmOrderPage.getTxtShippingCityZip().getText());
             Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), confirmOrderPage.getTxtShippingPhone().getText());
             Assert.assertEquals(OrderData.getAddress(), confirmOrderPage.getTxtShippingAddress().getText());
             Assert.assertEquals(OrderData.getCountry(), confirmOrderPage.getTxtShippingCountry().getText());
@@ -49,9 +52,7 @@ public class ConfirmOrderFuncionalidade extends BaseTest{
         Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()), 0.0024);
     }
 
-    public void confirmOrder(){
-        confirmOrderPage.getBtnConfirmOrder().click();
-    }
+    public void confirmOrder(){ confirmOrderPage.getBtnConfirmOrder().click(); }
 
     public void verifySuccess(String textoSucesso){
         this.seleniumRobot.esperaElementoSerClicavel(confirmOrderPage.getTxtSuccess());

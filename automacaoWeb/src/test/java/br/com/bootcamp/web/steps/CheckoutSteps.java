@@ -1,18 +1,13 @@
 package br.com.bootcamp.web.steps;
 
-import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.CheckoutFuncionalidade;
-import br.com.bootcamp.pages.web.CheckoutPage;
 import cucumber.api.java.pt.E;
 
 public class CheckoutSteps {
 
-    private SeleniumRobot seleniumRobot;
-    private CheckoutPage checkoutPage;
     private CheckoutFuncionalidade checkoutFuncionalidade;
 
     public CheckoutSteps() {
-        this.seleniumRobot = new SeleniumRobot();
         this.checkoutFuncionalidade = new CheckoutFuncionalidade();
     }
 

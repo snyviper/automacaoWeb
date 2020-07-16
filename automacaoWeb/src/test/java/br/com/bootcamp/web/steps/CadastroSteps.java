@@ -16,16 +16,16 @@ public class CadastroSteps {
     }
 
     @E("^realizo o cadastro do cliente$")
-    public void realizoCadastroDoCliente() { this.cadastroFuncionalidade.preencheDadosERegistra(); }
+    public void realizoCadastroDoCliente() { cadastroFuncionalidade.preencheDadosERegistra(); }
 
     @Entao("^visualizo a mensagem \"([^\"]*)\" na tela$")
     public void visualizoAMensagemNaTela(String mensagem){
-        this.seleniumRobot.validaTexto(this.cadastroFuncionalidade.retornaMensagem(),mensagem);
+        cadastroFuncionalidade.verificaMensagem(mensagem);
     }
 
     @E("^deslogo$")
-    public void deslogo(){ this.seleniumRobot.clicaBotaoPorTexto("Log out"); }
+    public void deslogo(){ seleniumRobot.clicaBotaoPorTexto("Log out"); }
 
     @E("^volto para a home page$")
-    public void voltoParaHomePage(){ this.cadastroFuncionalidade.voltarParaHomePage(); }
+    public void voltoParaHomePage(){ cadastroFuncionalidade.voltarParaHomePage(); }
 }

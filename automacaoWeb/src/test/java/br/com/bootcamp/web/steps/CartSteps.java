@@ -1,10 +1,8 @@
 package br.com.bootcamp.web.steps;
 
-//import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.CartFuncionalidade;
 import cucumber.api.java.pt.E;
-import cucumber.api.java.pt.Entao;
 
 public class CartSteps {
     private SeleniumRobot seleniumRobot;
@@ -21,9 +19,10 @@ public class CartSteps {
         cartFuncionalidade.compararPrecoTotal();
     }
 
-    @E("^aceito os termos de servico e faco checkout$")
+    @E("^testo e aceito os termos de servico e faco checkout$")
     public void aceitoOsTermosEFacoCheckout(){
-        this.cartFuncionalidade.aceitarEFazerCheckout();
+        cartFuncionalidade.testarTermsOfService();
+        cartFuncionalidade.aceitarEFazerCheckout();
     }
 
 }

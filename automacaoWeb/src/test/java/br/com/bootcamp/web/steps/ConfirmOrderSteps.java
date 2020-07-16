@@ -2,7 +2,6 @@ package br.com.bootcamp.web.steps;
 
 import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.ConfirmOrderFuncionalidade;
-import br.com.bootcamp.pages.web.ConfirmOrderPage;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 
@@ -36,7 +35,6 @@ public class ConfirmOrderSteps {
 
     @E("^visualizo a mensagem \"([^\"]*)\"$")
     public void visualizoAMensagemNaTela(String mensagem){
-        //this.seleniumRobot.validaTexto(this.confirmOrderFuncionalidade.verifySuccess();,mensagem);
         this.confirmOrderFuncionalidade.verifySuccess(mensagem);
     }
 }

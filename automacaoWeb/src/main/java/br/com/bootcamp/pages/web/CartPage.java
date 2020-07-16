@@ -19,9 +19,14 @@ public class CartPage {
     @FindBy(id = "checkout")
     private WebElement btnCheckout;
 
+    @FindBy(xpath = "//button[@title='close']")
+    private WebElement btnCloseTermsOfService;
+
     public WebElement getTxtSubTotal(){ return txtSubTotal; }
 
     public WebElement getChkBxTermsOfService() { return chkBxTermsOfService; }
 
     public WebElement getBtnCheckout(){ return btnCheckout; }
+
+    public WebElement getBtnCloseTermsOfService(){ return btnCloseTermsOfService; }
 }

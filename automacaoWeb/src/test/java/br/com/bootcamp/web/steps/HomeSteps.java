@@ -3,7 +3,6 @@ package br.com.bootcamp.web.steps;
 import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.statics.Credentials;
 import br.com.bootcamp.funcionalidade.web.HomeFuncionalidade;
-import br.com.bootcamp.pages.web.HomePage;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
@@ -42,7 +41,5 @@ public class HomeSteps {
     }
 
     @E("^clico em Go to cart$")
-    public void clicoEmGoToCart(){
-        seleniumRobot.clicaBotaoJS(homeFuncionalidade.getBtnGoToCart());
-    }
+    public void clicoEmGoToCart(){ seleniumRobot.clicaBotaoJS(homeFuncionalidade.getBtnGoToCart()); }
 }

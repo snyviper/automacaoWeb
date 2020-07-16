@@ -6,6 +6,7 @@ import br.com.bootcamp.pages.web.CheckoutPage;
 import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.OrderData;
 import com.github.javafaker.Faker;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutFuncionalidade extends BaseTest {
 
@@ -20,12 +21,12 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void preencherEnderecoEContinuar(){
-        new OrderData("Brazil", faker.address().streetAddressNumber(), faker.phoneNumber().phoneNumber());
+        new OrderData("Brazil", faker.address().cityName(), faker.address().streetAddressNumber(), faker.address().zipCode(), faker.phoneNumber().phoneNumber());
         seleniumRobot.esperaElementoSerClicavel(checkoutPage.getDpBxCountry());
         seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCountry(), OrderData.getCountry());
-        checkoutPage.getTxtCity().sendKeys(faker.address().cityName());
+        checkoutPage.getTxtCity().sendKeys(OrderData.getCity());
         checkoutPage.getTxtAddress().sendKeys(OrderData.getAddress());
-        checkoutPage.getTxtZipCode().sendKeys(faker.address().zipCode());
+        checkoutPage.getTxtZipCode().sendKeys(OrderData.getZipCode());
         checkoutPage.getTxtPhoneNumber().sendKeys(OrderData.getPhoneNumber());
         checkoutPage.getBtnContinueBilling().click();
     }
@@ -82,7 +83,7 @@ public class CheckoutFuncionalidade extends BaseTest {
 
     public void preencherPaymentInformationEContinuar(){
         if(OrderData.getPaymentMethod().equals("Credit Card")){
-            seleniumRobot.esperaElementoSerClicavel(checkoutPage.getDpBxCreditCard());
+            wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getDpBxCreditCard()));
             seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCreditCard(),1);
             checkoutPage.getTxtCardHolderName().sendKeys(faker.name().fullName());
             checkoutPage.getTxtCardNumber().sendKeys("1234567890123456789012");
@@ -91,7 +92,7 @@ public class CheckoutFuncionalidade extends BaseTest {
             checkoutPage.getTxtCardCode().sendKeys(faker.number().digits(4));
         }
         else{
-            seleniumRobot.esperaElementoSerClicavel(checkoutPage.getBtnContinuePaymentInfo());
+            wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getBtnContinuePaymentInfo()));
         }
         checkoutPage.getBtnContinuePaymentInfo().click();
     }
