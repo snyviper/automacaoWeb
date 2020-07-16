@@ -21,20 +21,20 @@ public class CadastroFuncionalidade extends BaseTest {
     }
 
     public void preencheDadosERegistra(){
-        new Credentials(this.faker.internet().emailAddress(), this.faker.internet().password());
-        wait.until(ExpectedConditions.elementToBeClickable(this.cadastroPage.getBtnRegister()));
-        this.cadastroPage.getRbGenderM().click();
-        this.cadastroPage.getTxtFirstName().sendKeys(this.faker.name().firstName());
-        this.cadastroPage.getTxtLastName().sendKeys(this.faker.name().lastName());
-        this.cadastroPage.getTxtEmail().sendKeys(Credentials.getEmail());
-        this.cadastroPage.getTxtPassword().sendKeys(Credentials.getSenha());
-        this.cadastroPage.getTxtConfirmPassword().sendKeys(Credentials.getSenha());
-        this.cadastroPage.getBtnRegister().click();
+        new Credentials(faker.internet().emailAddress(), faker.internet().password());
+        wait.until(ExpectedConditions.elementToBeClickable(cadastroPage.getBtnRegister()));
+        cadastroPage.getRbGenderM().click();
+        cadastroPage.getTxtFirstName().sendKeys(faker.name().firstName());
+        cadastroPage.getTxtLastName().sendKeys(faker.name().lastName());
+        cadastroPage.getTxtEmail().sendKeys(Credentials.getEmail());
+        cadastroPage.getTxtPassword().sendKeys(Credentials.getSenha());
+        cadastroPage.getTxtConfirmPassword().sendKeys(Credentials.getSenha());
+        cadastroPage.getBtnRegister().click();
     }
 
     public String retornaMensagem(){
-       return this.seleniumRobot.pegarValorTexto(this.cadastroPage.getMsgResult());
+       return seleniumRobot.pegarValorTexto(cadastroPage.getMsgResult());
     }
 
-    public void voltarParaHomePage(){ this.cadastroPage.getImgHome().click(); }
+    public void voltarParaHomePage(){ cadastroPage.getImgHome().click(); }
 }

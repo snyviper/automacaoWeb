@@ -14,12 +14,12 @@ public class CartFuncionalidade extends BaseTest {
     public CartFuncionalidade(){ this.cartPage = new CartPage(webDriver); }
 
     public void aceitarEFazerCheckout(){
-        this.cartPage.getChkBxTermsOfService().click();
-        this.cartPage.getBtnCheckout().click();
+        cartPage.getChkBxTermsOfService().click();
+        cartPage.getBtnCheckout().click();
     }
 
     public void compararPrecoTotal(){
-        Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(this.cartPage.getTxtSubTotal().getText()),0.0049);
+        Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(cartPage.getTxtSubTotal().getText()),0.0024);
     }
 
     public WebElement getTxtSubTotal(){

@@ -20,60 +20,60 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void preencherEnderecoEContinuar(){
-        new OrderData("Brazil", this.faker.address().streetAddressNumber(), faker.phoneNumber().phoneNumber());
-        seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getDpBxCountry());
-        seleniumRobot.selecionaItemLista(this.checkoutPage.getDpBxCountry(), OrderData.getCountry());
-        this.checkoutPage.getTxtCity().sendKeys(this.faker.address().cityName());
-        this.checkoutPage.getTxtAddress().sendKeys(OrderData.getAddress());
-        this.checkoutPage.getTxtZipCode().sendKeys(this.faker.address().zipCode());
-        this.checkoutPage.getTxtPhoneNumber().sendKeys(OrderData.getPhoneNumber());
-        this.checkoutPage.getBtnContinueBilling().click();
+        new OrderData("Brazil", faker.address().streetAddressNumber(), faker.phoneNumber().phoneNumber());
+        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getDpBxCountry());
+        seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCountry(), OrderData.getCountry());
+        checkoutPage.getTxtCity().sendKeys(faker.address().cityName());
+        checkoutPage.getTxtAddress().sendKeys(OrderData.getAddress());
+        checkoutPage.getTxtZipCode().sendKeys(faker.address().zipCode());
+        checkoutPage.getTxtPhoneNumber().sendKeys(OrderData.getPhoneNumber());
+        checkoutPage.getBtnContinueBilling().click();
     }
 
     public void testarPickUpInStoreEContinuar(){
-        this.seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getCkBxPickUpInStore());
-        this.checkoutPage.getCkBxPickUpInStore().click();
-        this.checkoutPage.getCkBxPickUpInStore().click();
-        OrderData.setPickUpInStore(this.checkoutPage.getCkBxPickUpInStore().isSelected());
-        this.checkoutPage.getBtnContinueShippingButtons().click();
+        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getCkBxPickUpInStore());
+        checkoutPage.getCkBxPickUpInStore().click();
+        checkoutPage.getCkBxPickUpInStore().click();
+        OrderData.setPickUpInStore(checkoutPage.getCkBxPickUpInStore().isSelected());
+        checkoutPage.getBtnContinueShippingButtons().click();
     }
 
     public void testarShippingMethodEContinuar(){
-        this.seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getRdBxNextDayAir());
-        this.checkoutPage.getRdBxNextDayAir().click();
-        this.checkoutPage.getRdBx2ndDayAir().click();
-        this.checkoutPage.getRdBxGround().click();
+        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getRdBxNextDayAir());
+        checkoutPage.getRdBxNextDayAir().click();
+        checkoutPage.getRdBx2ndDayAir().click();
+        checkoutPage.getRdBxGround().click();
 
-        if(this.checkoutPage.getRdBxGround().isSelected()){
+        if(checkoutPage.getRdBxGround().isSelected()){
             OrderData.setShippingMethod("Ground");
         }
-        else if(this.checkoutPage.getRdBxNextDayAir().isSelected()){
+        else if(checkoutPage.getRdBxNextDayAir().isSelected()){
             OrderData.setShippingMethod("Next Day Air");
         }
-        else if(this.checkoutPage.getRdBx2ndDayAir().isSelected()){
+        else if(checkoutPage.getRdBx2ndDayAir().isSelected()){
             OrderData.setShippingMethod("2nd Day Air");
         }
 
-        this.checkoutPage.getBtnContinueShippingMethods().click();
+        checkoutPage.getBtnContinueShippingMethods().click();
     }
 
     public void testarPaymentMethodEContinuar(){
-        this.seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getRdBxCheck());
-        this.checkoutPage.getRdBxCheck().click();
-        this.checkoutPage.getRdBxPurchaseOrder().click();
-        this.checkoutPage.getRdBxCash().click();
-        this.checkoutPage.getRdBxCreditCard().click();
+        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getRdBxCheck());
+        checkoutPage.getRdBxCheck().click();
+        checkoutPage.getRdBxPurchaseOrder().click();
+        checkoutPage.getRdBxCash().click();
+        checkoutPage.getRdBxCreditCard().click();
 
-        if(this.checkoutPage.getRdBxCash().isSelected()){
+        if(checkoutPage.getRdBxCash().isSelected()){
             OrderData.setPaymentMethod("Cash On Delivery (COD)");
         }
-        else if(this.checkoutPage.getRdBxCheck().isSelected()){
+        else if(checkoutPage.getRdBxCheck().isSelected()){
             OrderData.setPaymentMethod("Check / Money Order");
         }
-        else if(this.checkoutPage.getRdBxCreditCard().isSelected()){
+        else if(checkoutPage.getRdBxCreditCard().isSelected()){
             OrderData.setPaymentMethod("Credit Card");
         }
-        else if(this.checkoutPage.getRdBxPurchaseOrder().isSelected()){
+        else if(checkoutPage.getRdBxPurchaseOrder().isSelected()){
             OrderData.setPaymentMethod("Purchase Order");
         }
 
@@ -82,17 +82,17 @@ public class CheckoutFuncionalidade extends BaseTest {
 
     public void preencherPaymentInformationEContinuar(){
         if(OrderData.getPaymentMethod().equals("Credit Card")){
-            this.seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getDpBxCreditCard());
-            this.seleniumRobot.selecionaItemLista(this.checkoutPage.getDpBxCreditCard(),1);
-            this.checkoutPage.getTxtCardHolderName().sendKeys(faker.name().fullName());
-            this.checkoutPage.getTxtCardNumber().sendKeys("1234567890123456789012");
-            this.seleniumRobot.selecionaItemLista(this.checkoutPage.getDpBxExpireMonth(), 1);
-            this.seleniumRobot.selecionaItemLista(this.checkoutPage.getDpBxExpireYear(), 2);
-            this.checkoutPage.getTxtCardCode().sendKeys(faker.number().digits(4));
+            seleniumRobot.esperaElementoSerClicavel(checkoutPage.getDpBxCreditCard());
+            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCreditCard(),1);
+            checkoutPage.getTxtCardHolderName().sendKeys(faker.name().fullName());
+            checkoutPage.getTxtCardNumber().sendKeys("1234567890123456789012");
+            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireMonth(), 1);
+            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireYear(), 2);
+            checkoutPage.getTxtCardCode().sendKeys(faker.number().digits(4));
         }
         else{
-            this.seleniumRobot.esperaElementoSerClicavel(this.checkoutPage.getBtnContinuePaymentInfo());
+            seleniumRobot.esperaElementoSerClicavel(checkoutPage.getBtnContinuePaymentInfo());
         }
-        this.checkoutPage.getBtnContinuePaymentInfo().click();
+        checkoutPage.getBtnContinuePaymentInfo().click();
     }
 }

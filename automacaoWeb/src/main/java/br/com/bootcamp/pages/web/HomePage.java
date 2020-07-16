@@ -45,6 +45,9 @@ public class HomePage {
 	@FindBy(xpath = "//input[@value='Go to cart']")
 	private WebElement btnGoToCart;
 
+	@FindBy(xpath = "//div[@class='loading-image']")
+	private WebElement imgLoading;
+
 	public WebElement getBtnEmail(){ return btnEmail; }
 
 	public WebElement getTxtSecondProductName(){ return txtSecondProductName; }
@@ -64,4 +67,6 @@ public class HomePage {
 	public WebElement getBtnAddToCartSlow(){ return btnAddToCartSlow; }
 
 	public WebElement getBtnGoToCart(){ return btnGoToCart; }
+
+	public WebElement getImgLoading(){ return imgLoading; }
 }

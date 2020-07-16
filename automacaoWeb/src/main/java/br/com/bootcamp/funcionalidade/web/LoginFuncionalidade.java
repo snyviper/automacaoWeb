@@ -13,17 +13,13 @@ public class LoginFuncionalidade extends BaseTest {
 		this.loginPage = new LoginPage(webDriver);
 	}
 
-	/*public void preencheCredenciais(String tipoUsuario){
-		this.loginPage.getTxtEmail().sendKeys(Credentials.valueOf(tipoUsuario.toUpperCase()).usuarioCliente());
-		this.loginPage.getTxtSenha().sendKeys(Credentials.valueOf(tipoUsuario.toUpperCase()).senhaCliente());
-	}*/
 	public void preencheCredenciais(){
-		this.loginPage.getTxtEmail().sendKeys(Credentials.getEmail());
-		this.loginPage.getTxtSenha().sendKeys(Credentials.getSenha());
+		loginPage.getTxtEmail().sendKeys(Credentials.getEmail());
+		loginPage.getTxtSenha().sendKeys(Credentials.getSenha());
 	}
 
 	public void clickLogIn(){
-		this.loginPage.getBtnLogIn().click();
+		loginPage.getBtnLogIn().click();
 	}
 
 }

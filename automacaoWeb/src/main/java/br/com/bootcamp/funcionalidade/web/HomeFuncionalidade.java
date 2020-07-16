@@ -5,6 +5,7 @@ import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.statics.Products;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomeFuncionalidade extends BaseTest{
 	
@@ -34,8 +35,7 @@ public class HomeFuncionalidade extends BaseTest{
 	}
 	public void clicarNoTerceiroItem(){
 		seleniumRobot.scrollAteOElementoJS(homePage.getBtnAddToCartThirdItem());
-		//seleniumRobot.esperaTeste(homePage.getBtnAddToCartThirdItem());
-		try { Thread.sleep (1000); } catch (InterruptedException ex) {}
+		wait.until(ExpectedConditions.invisibilityOf(homePage.getImgLoading()));
 		homePage.getBtnAddToCartThirdItem().click();
 		seleniumRobot.esperaElementoSerClicavel(homePage.getRdBtnSlow());
 		homePage.getRdBtnSlow().click();
