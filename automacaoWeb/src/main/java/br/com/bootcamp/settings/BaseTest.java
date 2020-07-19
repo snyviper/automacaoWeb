@@ -3,8 +3,10 @@ package br.com.bootcamp.settings;
 import br.com.bootcamp.interfaces.MobileApplicationImp;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.assertj.core.api.Assertions;
 
 import br.com.bootcamp.interfaces.BrowserImp;
 
@@ -13,6 +15,8 @@ public class BaseTest {
 	protected static AndroidDriver<MobileElement> mobileDriver;
 	protected static WebDriver webDriver;
 	protected static WebDriverWait wait;
+	protected static SoftAssertions softly;
+	protected static final float delta = 0.0024f;
 
 	protected void initializeWebApplication(BrowserImp webApplication) {
 		if (webDriver != null)
@@ -22,7 +26,7 @@ public class BaseTest {
 		webDriver.get("http://demowebshop.tricentis.com/");
 		webDriver.manage().window().maximize();
 		wait = new WebDriverWait(webDriver, 60);
-
+		softly = new SoftAssertions();
 	}
 
 	protected void initializeMobileApplication(MobileApplicationImp mobileApplicationImp){

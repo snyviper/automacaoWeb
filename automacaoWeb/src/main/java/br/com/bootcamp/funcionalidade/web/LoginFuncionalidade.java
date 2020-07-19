@@ -1,6 +1,5 @@
 package br.com.bootcamp.funcionalidade.web;
 
-
 //import br.com.bootcamp.enums.Credentials;
 import br.com.bootcamp.statics.Credentials;
 import br.com.bootcamp.pages.web.LoginPage;

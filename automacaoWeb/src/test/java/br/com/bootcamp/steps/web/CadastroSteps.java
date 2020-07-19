@@ -1,4 +1,4 @@
-package br.com.bootcamp.web.steps;
+package br.com.bootcamp.steps.web;
 
 import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.funcionalidade.web.CadastroFuncionalidade;

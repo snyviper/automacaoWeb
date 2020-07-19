@@ -127,7 +127,6 @@ public class SeleniumRobot extends BaseTest {
 	 * Força sleep
 	 * @param milliseconds Tempo em milisegundos para ficar em sleep
 	 */
-	public void forceSleep(int milliseconds){
-		try { Thread.sleep(milliseconds); } catch (InterruptedException ex) {}
-	}
+	public void forceSleep(int milliseconds){ try { Thread.sleep(milliseconds); } catch (InterruptedException ex) {} }
+
 }

@@ -30,6 +30,7 @@ public class Hooks extends BaseTest{
 	public void afterWeb() {
 		System.out.println("Fechando Web");
 		closeWeb();
+		softly.assertAll();
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.bootcamp.web.steps;
+package br.com.bootcamp.steps.web;
 
 import br.com.bootcamp.funcionalidade.web.ConfirmOrderFuncionalidade;
 import cucumber.api.java.pt.E;

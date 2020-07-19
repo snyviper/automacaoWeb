@@ -21,8 +21,9 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void preencherEnderecoEContinuar(){
-        new OrderData("Brazil", faker.address().cityName(), faker.address().streetAddressNumber(), faker.address().zipCode(), faker.phoneNumber().phoneNumber());
-        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getDpBxCountry());
+        new OrderData("Brazil", faker.address().cityName(),faker.address().streetAddressNumber(),
+                faker.address().zipCode(), faker.phoneNumber().phoneNumber());
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getDpBxCountry()));
         seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCountry(), OrderData.getCountry());
         checkoutPage.getTxtCity().sendKeys(OrderData.getCity());
         checkoutPage.getTxtAddress().sendKeys(OrderData.getAddress());
@@ -32,7 +33,7 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void testarPickUpInStoreEContinuar(){
-        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getCkBxPickUpInStore());
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getCkBxPickUpInStore()));
         checkoutPage.getCkBxPickUpInStore().click();
         checkoutPage.getCkBxPickUpInStore().click();
         OrderData.setPickUpInStore(checkoutPage.getCkBxPickUpInStore().isSelected());
@@ -40,7 +41,7 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void testarShippingMethodEContinuar(){
-        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getRdBxNextDayAir());
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getRdBxNextDayAir()));
         checkoutPage.getRdBxNextDayAir().click();
         checkoutPage.getRdBx2ndDayAir().click();
         checkoutPage.getRdBxGround().click();
@@ -59,7 +60,7 @@ public class CheckoutFuncionalidade extends BaseTest {
     }
 
     public void testarPaymentMethodEContinuar(){
-        seleniumRobot.esperaElementoSerClicavel(checkoutPage.getRdBxCheck());
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getRdBxCheck()));
         checkoutPage.getRdBxCheck().click();
         checkoutPage.getRdBxPurchaseOrder().click();
         checkoutPage.getRdBxCash().click();

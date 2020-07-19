@@ -1,6 +1,5 @@
 package br.com.bootcamp.funcionalidade.web;
 
-import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.statics.Credentials;
 import br.com.bootcamp.pages.web.CadastroPage;
 import br.com.bootcamp.settings.BaseTest;
@@ -12,12 +11,10 @@ public class CadastroFuncionalidade extends BaseTest {
 
     private CadastroPage cadastroPage;
     private Faker faker;
-    private SeleniumRobot seleniumRobot;
 
     public CadastroFuncionalidade() {
         this.cadastroPage = new CadastroPage(webDriver);
         this.faker = new Faker();
-        this.seleniumRobot = new SeleniumRobot();
     }
 
     public void preencheDadosERegistra(){

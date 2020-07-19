@@ -1,4 +1,4 @@
-package br.com.bootcamp.mobile.steps;
+package br.com.bootcamp.steps.mobile;
 
 import br.com.bootcamp.funcionalidade.mobile.HomeFuncionalidade;
 import cucumber.api.java.pt.Dado;
@@ -14,6 +14,5 @@ public class HomeSteps {
     @Dado("^que toco na opção \"([^\"]*)\"$")
     public void queTocoNaOpção(String menu) {
         this.homeFuncionalidade.selecionaMenu(menu);
-
     }
 }

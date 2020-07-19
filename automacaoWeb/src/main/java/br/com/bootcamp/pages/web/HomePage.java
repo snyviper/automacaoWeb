@@ -36,12 +36,6 @@ public class HomePage {
 			"/child::div[4]/descendant::input[@value='Add to cart']")
 	private WebElement btnAddToCartThirdItem;
 
-	@FindBy(id = "product_attribute_72_5_18_52")
-	private WebElement rdBtnSlow;
-
-	@FindBy(id = "add-to-cart-button-72")
-	private WebElement btnAddToCartSlow;
-
 	@FindBy(xpath = "//input[@value='Go to cart']")
 	private WebElement btnGoToCart;
 
@@ -61,10 +55,6 @@ public class HomePage {
 	public WebElement getTxtThirdProductPrice(){ return txtThirdProductPrice; }
 
 	public WebElement getBtnAddToCartThirdItem(){ return btnAddToCartThirdItem; }
-
-	public WebElement getRdBtnSlow(){ return rdBtnSlow; }
-
-	public WebElement getBtnAddToCartSlow(){ return btnAddToCartSlow; }
 
 	public WebElement getBtnGoToCart(){ return btnGoToCart; }
 

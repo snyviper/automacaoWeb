@@ -1,6 +1,7 @@
-package br.com.bootcamp.web.steps;
+package br.com.bootcamp.steps.web;
 
 import br.com.bootcamp.commons.SeleniumRobot;
+import br.com.bootcamp.funcionalidade.web.BuildComputerFuncionalidade;
 import br.com.bootcamp.statics.Credentials;
 import br.com.bootcamp.funcionalidade.web.HomeFuncionalidade;
 import cucumber.api.java.pt.Dado;
@@ -11,10 +12,12 @@ public class HomeSteps {
 
     private SeleniumRobot seleniumRobot;
     private HomeFuncionalidade homeFuncionalidade;
+    private BuildComputerFuncionalidade buildComputerFuncionalidade;
 
     public HomeSteps() {
         this.seleniumRobot = new SeleniumRobot();
         this.homeFuncionalidade = new HomeFuncionalidade();
+        this.buildComputerFuncionalidade = new BuildComputerFuncionalidade();
     }
 
     @Dado("^que clico no botao \"([^\"]*)\"$")
@@ -36,8 +39,10 @@ public class HomeSteps {
     public void AdicionoOsItens(){
         homeFuncionalidade.gravarSegundoItem();
         homeFuncionalidade.clicarNoSegundoItem();
-        homeFuncionalidade.gravarTerceiroItem();
         homeFuncionalidade.clicarNoTerceiroItem();
+        buildComputerFuncionalidade.testaIncrementos();
+        buildComputerFuncionalidade.gravarTerceiroItem();
+        buildComputerFuncionalidade.addToCart();
     }
 
     @E("^clico em Go to cart$")
