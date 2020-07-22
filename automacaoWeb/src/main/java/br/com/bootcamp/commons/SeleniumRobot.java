@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumRobot extends BaseTest {
@@ -42,15 +41,6 @@ public class SeleniumRobot extends BaseTest {
 	}
 
 	/**
-	 * Retorna o valor de texto que existe no elemento
-	 * @param elemento Insira o elemento que você deseja capturar o texto
-	 * @return Retorna o valor de texto do elemento
-	 */
-	public String pegarValorTexto(WebElement elemento){
-		return elemento.getText();
-	}
-
-	/**
 	 * Valida se o texto atual é igual ao texto esperado
 	 * @param atual Insira o valor do texto atual
 	 * @param esperado Insira o valor do texto esperado
@@ -83,14 +73,6 @@ public class SeleniumRobot extends BaseTest {
 	public void scrollAteTopoDaPaginaJS(){
 		JavascriptExecutor js = (JavascriptExecutor)webDriver;
 		js.executeScript("window.scrollTo(0, document.body.scrollTop)");
-	}
-
-	/**
-	 * Espera o elemento estar clicavel na tela
-	 * @param elemento
-	 */
-	public void esperaElementoSerClicavel(WebElement elemento){
-		wait.until(ExpectedConditions.elementToBeClickable(elemento));
 	}
 
 	/**

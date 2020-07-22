@@ -16,7 +16,7 @@ public class BaseTest {
 	protected static WebDriver webDriver;
 	protected static WebDriverWait wait;
 	protected static SoftAssertions softly;
-	protected static final float delta = 0.0024f;
+	protected static final float delta = 0.00001f;
 
 	protected void initializeWebApplication(BrowserImp webApplication) {
 		if (webDriver != null)
