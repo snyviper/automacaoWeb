@@ -35,7 +35,7 @@ softly.assertThat(actual)
                 .withFailMessage("Custom message: " + customMessage + "\nExpected: " + expected + "\nActual: " + actual)
                 .isEqualTo(expected);
 ```
-_Note que **withFailMessage()** vem **antes** de **.isEqualTo**_
+_Note que **withFailMessage()** vem **antes** de **.isEqualTo()**_
 
 - Chamar o resultado
 ```java
@@ -46,4 +46,4 @@ public void afterWeb() {
 }
 ```
 
-É possível chamar o **assertAll** antes de fechar o navegador, e até mesmo fora do **@After**, mas o programa não fechará o navegador se for constatado algum erro em alguma das **assertThat()**.
+É possível chamar o **assertAll()** antes de fechar o navegador, e até mesmo fora do **@After**, mas o programa não fechará o navegador se for constatado algum erro em alguma das **assertThat()**.
