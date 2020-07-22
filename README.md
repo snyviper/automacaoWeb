@@ -13,14 +13,12 @@ public class BaseClass {
 }
 ```
 
-- Fazer as asserções: Asserções de igualdade`
-`
+- Fazer as asserções: Asserções de igualdade  
 Para asserções de igualdade entre ints e strings, usa-se
 ```java
 softly.assertThat(actual).isEqualTo(expected);
 ```
-- Fazer as asserções: Asserções de aproximação:`
-`
+- Fazer as asserções: Asserções de aproximação  
 Para asserções de igualdade entre pontos flutuantes, é recomendado o uso da asserção com um delta, da forma
 ```java
 import org.assertj.core.data.Offset;
