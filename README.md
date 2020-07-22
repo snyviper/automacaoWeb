@@ -27,7 +27,7 @@ public class FuncionalidadeClass extends BaseClass {
     softly.assertThat(actual).isCloseTo(expected, Offset.offset(delta));
 }
 ```
-_Note que Offset.offset() é uma **função**, e delta é uma **variável**_
+_Note que **Offset.offset()** é uma **função**, e **delta** é uma **variável**_
 
 - Fazer as asserções: Mensagens de erro personalizadas
 ```java
@@ -35,7 +35,7 @@ softly.assertThat(actual)
                 .withFailMessage("Custom message: " + customMessage + "\nExpected: " + expected + "\nActual: " + actual)
                 .isEqualTo(expected);
 ```
-_Note que withFailMessage vem **antes** de .isEqualTo_
+_Note que **withFailMessage()** vem **antes** de **.isEqualTo**_
 
 - Chamar o resultado
 ```java
@@ -46,4 +46,4 @@ public void afterWeb() {
 }
 ```
 
-É possível chamar o assertAll antes de fechar o navegador, e até mesmo fora do @After, mas o programa não fechará o navegador se for constatado algum erro em alguma das assertThat.
+É possível chamar o **assertAll** antes de fechar o navegador, e até mesmo fora do **@After**, mas o programa não fechará o navegador se for constatado algum erro em alguma das **assertThat()**.
