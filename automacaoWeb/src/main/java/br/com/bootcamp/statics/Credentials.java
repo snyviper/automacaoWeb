@@ -1,12 +1,12 @@
 package br.com.bootcamp.statics;
 
-public class Credentials {
+public abstract class Credentials {
     static private String email = "";
     static private String senha = "";
-    public Credentials(){}
-    public Credentials(String email, String senha){
-        this.email = email;
-        this.senha = senha;
+
+    public static void setCredentials(String Email, String Senha){
+        email = Email;
+        senha = Senha;
     }
 
     public static String getEmail() {

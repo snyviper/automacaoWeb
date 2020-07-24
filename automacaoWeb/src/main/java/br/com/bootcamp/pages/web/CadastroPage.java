@@ -36,39 +36,21 @@ public class CadastroPage {
     @FindBy(xpath = "//a[@href='/']")
     private WebElement imgHome;
 
-    public WebElement getMsgResult() {
-        return msgResult;
-    }
+    public WebElement getMsgResult() { return msgResult; }
 
-    public WebElement getRbGenderM() {
-        return rbGenderM;
-    }
+    public WebElement getRbGenderM() { return rbGenderM; }
 
-    public WebElement getTxtFirstName() {
-        return txtFirstName;
-    }
+    public WebElement getTxtFirstName() { return txtFirstName; }
 
-    public WebElement getTxtLastName() {
-        return txtLastName;
-    }
+    public WebElement getTxtLastName() { return txtLastName; }
 
-    public WebElement getTxtEmail() {
-        return txtEmail;
-    }
+    public WebElement getTxtEmail() { return txtEmail; }
 
-    public WebElement getTxtPassword() {
-        return txtPassword;
-    }
+    public WebElement getTxtPassword() { return txtPassword; }
 
-    public WebElement getTxtConfirmPassword() {
-        return txtConfirmPassword;
-    }
+    public WebElement getTxtConfirmPassword() { return txtConfirmPassword; }
 
-    public WebElement getBtnRegister() {
-        return btnRegister;
-    }
+    public WebElement getBtnRegister() { return btnRegister; }
 
-    public WebElement getImgHome() {
-        return imgHome;
-    }
+    public WebElement getImgHome() { return imgHome; }
 }

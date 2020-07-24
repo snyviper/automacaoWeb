@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-//import org.assertj.core.api.Assertions;
 
 import br.com.bootcamp.interfaces.BrowserImp;
 
@@ -16,7 +15,8 @@ public class BaseTest {
 	protected static WebDriver webDriver;
 	protected static WebDriverWait wait;
 	protected static SoftAssertions softly;
-	protected static final float delta = 0.00001f;
+	protected static final float deltaFloat = 0.00001f;
+	protected static final double deltaDouble = 0.000001;
 
 	protected void initializeWebApplication(BrowserImp webApplication) {
 		if (webDriver != null)

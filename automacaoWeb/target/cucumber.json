@@ -28,7 +28,7 @@
         "before": [
           {
             "result": {
-              "duration": 32937635291,
+              "duration": 35624877596,
               "status": "passed"
             },
             "match": {
@@ -43,8 +43,8 @@
         "after": [
           {
             "result": {
-              "duration": 4148305339,
-              "error_message": "org.assertj.core.api.SoftAssertionError: \r\nThe following 6 assertions failed:\r\n1) Build Computer -\u003e Price with medium processor\nExpected: 815.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n2) Build Computer -\u003e Price with fast processor\nExpected: 900.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n3) Build Computer -\u003e Price with 8GB RAM\nExpected: 860.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n4) Build Computer -\u003e Price with 4GB RAM\nExpected: 820.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n5) Build Computer -\u003e Price with 400GB HD\nExpected: 900.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n6) Build Computer -\u003e Price with all increments\nExpected: 1205.0\nActual: 800.0\r\nat BuildComputerFuncionalidade.softAssertPrice(BuildComputerFuncionalidade.java:32)\r\n\r\n\tat org.assertj.core.error.AssertionErrorCreator.multipleSoftAssertionsError(AssertionErrorCreator.java:75)\r\n\tat org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:37)\r\n\tat br.com.bootcamp.settings.Hooks.afterWeb(Hooks.java:33)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)\r\n\tat cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)\r\n\tat cucumber.runtime.Runtime.runHooks(Runtime.java:212)\r\n\tat cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)\r\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)\r\n\tat cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.api.junit.Cucumber.run(Cucumber.java:100)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)\r\n",
+              "duration": 3904931134,
+              "error_message": "org.assertj.core.api.SoftAssertionError: \r\nThe following 6 assertions failed:\r\n1) Build Computer -\u003e Price of medium processor\nExpected: 815.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n2) Build Computer -\u003e Price of fast processor\nExpected: 900.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n3) Build Computer -\u003e Price of 8GB RAM\nExpected: 860.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n4) Build Computer -\u003e Price of 4GB RAM\nExpected: 820.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n5) Build Computer -\u003e Price of 400GB HD\nExpected: 900.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n6) Build Computer -\u003e Price of all increments\nExpected: 1205.0\nActual: 800.0\r\nat SeleniumRobot.softAssertPrice(SeleniumRobot.java:81)\r\n\r\n\tat org.assertj.core.error.AssertionErrorCreator.multipleSoftAssertionsError(AssertionErrorCreator.java:75)\r\n\tat org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:37)\r\n\tat br.com.bootcamp.settings.Hooks.afterWeb(Hooks.java:33)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:40)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:34)\r\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)\r\n\tat cucumber.runtime.Runtime.runHookIfTagsMatch(Runtime.java:224)\r\n\tat cucumber.runtime.Runtime.runHooks(Runtime.java:212)\r\n\tat cucumber.runtime.Runtime.runAfterHooks(Runtime.java:206)\r\n\tat cucumber.runtime.model.CucumberScenario.run(CucumberScenario.java:46)\r\n\tat cucumber.runtime.junit.ExecutionUnitRunner.run(ExecutionUnitRunner.java:102)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:63)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:18)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:70)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:95)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:38)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.api.junit.Cucumber.run(Cucumber.java:100)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)\r\n",
               "status": "failed"
             },
             "match": {
@@ -57,7 +57,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3920369164,
+              "duration": 1755202567,
               "status": "passed"
             },
             "line": 11,
@@ -75,7 +75,7 @@
           },
           {
             "result": {
-              "duration": 12511317812,
+              "duration": 3210915096,
               "status": "passed"
             },
             "line": 12,
@@ -87,7 +87,7 @@
           },
           {
             "result": {
-              "duration": 3791052368,
+              "duration": 779470646,
               "status": "passed"
             },
             "line": 13,
@@ -99,7 +99,7 @@
           },
           {
             "result": {
-              "duration": 50972314550,
+              "duration": 16739444239,
               "status": "passed"
             },
             "line": 14,
@@ -111,7 +111,7 @@
           },
           {
             "result": {
-              "duration": 2349256381,
+              "duration": 2230824611,
               "status": "passed"
             },
             "line": 15,
@@ -123,7 +123,7 @@
           },
           {
             "result": {
-              "duration": 718889865,
+              "duration": 676020318,
               "status": "passed"
             },
             "line": 16,
@@ -135,7 +135,7 @@
           },
           {
             "result": {
-              "duration": 6016021555,
+              "duration": 4931576364,
               "status": "passed"
             },
             "line": 17,
@@ -147,7 +147,7 @@
           },
           {
             "result": {
-              "duration": 4978843192,
+              "duration": 2031699584,
               "status": "passed"
             },
             "line": 18,
@@ -159,7 +159,7 @@
           },
           {
             "result": {
-              "duration": 6061102631,
+              "duration": 2312711831,
               "status": "passed"
             },
             "line": 19,
@@ -171,7 +171,7 @@
           },
           {
             "result": {
-              "duration": 3207007574,
+              "duration": 856556472,
               "status": "passed"
             },
             "line": 20,
@@ -183,7 +183,7 @@
           },
           {
             "result": {
-              "duration": 2512995554,
+              "duration": 1059642814,
               "status": "passed"
             },
             "line": 21,
@@ -195,7 +195,7 @@
           },
           {
             "result": {
-              "duration": 5374942608,
+              "duration": 1367777836,
               "status": "passed"
             },
             "line": 22,
@@ -207,7 +207,7 @@
           },
           {
             "result": {
-              "duration": 3593030581,
+              "duration": 1008807385,
               "status": "passed"
             },
             "line": 23,
@@ -219,7 +219,7 @@
           },
           {
             "result": {
-              "duration": 865953953,
+              "duration": 316719331,
               "status": "passed"
             },
             "line": 24,
@@ -231,7 +231,7 @@
           },
           {
             "result": {
-              "duration": 241333958,
+              "duration": 84590683,
               "status": "passed"
             },
             "line": 25,
@@ -243,7 +243,7 @@
           },
           {
             "result": {
-              "duration": 2597980794,
+              "duration": 2651257792,
               "status": "passed"
             },
             "line": 26,

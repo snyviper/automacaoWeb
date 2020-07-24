@@ -11,20 +11,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CheckoutFuncionalidade extends BaseTest {
 
     private CheckoutPage checkoutPage;
-    private SeleniumRobot seleniumRobot;
     private Faker faker;
 
     public CheckoutFuncionalidade(){
         this.checkoutPage = new CheckoutPage(webDriver);
-        this.seleniumRobot = new SeleniumRobot();
         this.faker = new Faker();
     }
 
     public void preencherEnderecoEContinuar(){
-        new OrderData("Brazil", faker.address().cityName(),faker.address().streetAddressNumber(),
+        OrderData.setFullContact("Brazil", faker.address().cityName(),faker.address().streetAddressNumber(),
                 faker.address().zipCode(), faker.phoneNumber().phoneNumber());
         wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getDpBxCountry()));
-        seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCountry(), OrderData.getCountry());
+        SeleniumRobot.selecionaItemLista(checkoutPage.getDpBxCountry(), OrderData.getCountry());
         checkoutPage.getTxtCity().sendKeys(OrderData.getCity());
         checkoutPage.getTxtAddress().sendKeys(OrderData.getAddress());
         checkoutPage.getTxtZipCode().sendKeys(OrderData.getZipCode());
@@ -85,11 +83,11 @@ public class CheckoutFuncionalidade extends BaseTest {
     public void preencherPaymentInformationEContinuar(){
         if(OrderData.getPaymentMethod().equals("Credit Card")){
             wait.until(ExpectedConditions.elementToBeClickable(checkoutPage.getDpBxCreditCard()));
-            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxCreditCard(),1);
+            SeleniumRobot.selecionaItemLista(checkoutPage.getDpBxCreditCard(),1);
             checkoutPage.getTxtCardHolderName().sendKeys(faker.name().fullName());
             checkoutPage.getTxtCardNumber().sendKeys("1234567890123456789012");
-            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireMonth(), 1);
-            seleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireYear(), 2);
+            SeleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireMonth(), 1);
+            SeleniumRobot.selecionaItemLista(checkoutPage.getDpBxExpireYear(), 2);
             checkoutPage.getTxtCardCode().sendKeys(faker.number().digits(4));
         }
         else{

@@ -8,9 +8,7 @@ public class ConfirmOrderSteps {
 
     private ConfirmOrderFuncionalidade confirmOrderFuncionalidade;
 
-    public ConfirmOrderSteps() {
-        this.confirmOrderFuncionalidade = new ConfirmOrderFuncionalidade();
-    }
+    public ConfirmOrderSteps() { this.confirmOrderFuncionalidade = new ConfirmOrderFuncionalidade(); }
 
     @E("^verifico o endereco e o metodo de pagamento e o metodo de entrega$")
     public void verificoEnderecoEPagamento(){
@@ -21,17 +19,11 @@ public class ConfirmOrderSteps {
     }
 
     @E("^verifico os produtos$")
-    public void verificoOsProdutos(){
-        confirmOrderFuncionalidade.verifyProducts();
-    }
+    public void verificoOsProdutos(){ confirmOrderFuncionalidade.verifyProducts(); }
 
     @Entao("^clico em Continue para confirmar o pedido$")
-    public void clicoEmContinueParaConfirmar(){
-        confirmOrderFuncionalidade.confirmOrder();
-    }
+    public void clicoEmContinueParaConfirmar(){ confirmOrderFuncionalidade.confirmOrder(); }
 
     @E("^visualizo a mensagem \"([^\"]*)\"$")
-    public void visualizoAMensagemNaTela(String mensagem){
-        this.confirmOrderFuncionalidade.verifySuccess(mensagem);
-    }
+    public void visualizoAMensagemNaTela(String mensagem){ this.confirmOrderFuncionalidade.verifySuccess(mensagem); }
 }

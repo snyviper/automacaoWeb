@@ -1,20 +1,19 @@
 package br.com.bootcamp.funcionalidade.web;
 
+import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.pages.web.BuildComputerPage;
 import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.Products;
-import org.assertj.core.data.Offset;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static jdk.nashorn.internal.objects.NativeString.substring;
 
 public class BuildComputerFuncionalidade extends BaseTest {
 
+    private static final String funcionalidade = "Build Computer";
     private BuildComputerPage buildComputerPage;
 
-    public BuildComputerFuncionalidade() {
-        this.buildComputerPage = new BuildComputerPage(webDriver);
-    }
+    public BuildComputerFuncionalidade() { this.buildComputerPage = new BuildComputerPage(webDriver); }
 
     private float getPriceFromString(String value) {
         int st = 0;
@@ -26,13 +25,11 @@ public class BuildComputerFuncionalidade extends BaseTest {
         return val[st] == '[' && val[value.length() - 1] == ']' ? Float.parseFloat(substring(value, st + 1, value.length() - 1)) : 0;
     }
 
-    private void softAssertPrice(float expected, float actual, String variant){
-        softly.assertThat(actual)
-                .withFailMessage("Build Computer -> Price with " + variant + "\nExpected: " + expected + "\nActual: " + actual)
-                .isCloseTo(expected, Offset.offset(delta));
+    private void softAssertPrice(float expected, float actual, String attribute){
+        SeleniumRobot.softAssertPrice(expected, actual, funcionalidade, attribute);
     }
 
-    public void testaIncrementos(){
+    public void testarIncrementos(){
         wait.until(ExpectedConditions.elementToBeClickable(buildComputerPage.getTxtPrice()));
         final float price = Float.parseFloat(buildComputerPage.getTxtPrice().getText());
         softAssertPrice(price + getPriceFromString(buildComputerPage.getTxtProcessorMedium().getText()),
@@ -57,11 +54,11 @@ public class BuildComputerFuncionalidade extends BaseTest {
         buildComputerPage.getCkBxOfficeSuite().click();
         buildComputerPage.getCkBxOtherOfficeSuite().click();
         softAssertPrice(price + getPriceFromString(buildComputerPage.getTxtProcessorFast().getText()) +
-                        getPriceFromString(buildComputerPage.getTxtRam8GB().getText()) +
-                        getPriceFromString(buildComputerPage.getTxtHdd400GB().getText()) +
-                        getPriceFromString(buildComputerPage.getTxtImageViewer().getText()) +
-                        getPriceFromString(buildComputerPage.getTxtOfficeSuite().getText()) +
-                        getPriceFromString(buildComputerPage.getTxtOtherOfficeSuite().getText()),
+                getPriceFromString(buildComputerPage.getTxtRam8GB().getText()) +
+                getPriceFromString(buildComputerPage.getTxtHdd400GB().getText()) +
+                getPriceFromString(buildComputerPage.getTxtImageViewer().getText()) +
+                getPriceFromString(buildComputerPage.getTxtOfficeSuite().getText()) +
+                getPriceFromString(buildComputerPage.getTxtOtherOfficeSuite().getText()),
                 Float.parseFloat(buildComputerPage.getTxtPrice().getText()), "all increments");
         buildComputerPage.getRdBtnProcessorSlow().click();
         buildComputerPage.getRdBtnRam2GB().click();

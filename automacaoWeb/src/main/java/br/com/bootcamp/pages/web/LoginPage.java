@@ -18,13 +18,9 @@ public class LoginPage {
 	@FindBy(className = "button-1 login-button")
 	private WebElement btnLogIn;
 
-	public WebElement getTxtEmail() {
-		return txtEmail;
-	}
+	public WebElement getTxtEmail() { return txtEmail; }
 
-	public WebElement getTxtSenha() {
-		return txtSenha;
-	}
+	public WebElement getTxtSenha() { return txtSenha; }
 
 	public WebElement getBtnLogIn() { return btnLogIn; }
 }

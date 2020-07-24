@@ -15,6 +15,12 @@ public class CartPage {
     @FindBy(xpath = "//table[@class='cart-total']/descendant::tr[1]/descendant::span[@class='product-price']")
     private WebElement txtSubTotal;
 
+    @FindBy(id = "ui-id-2")
+    private WebElement txtTermsOfServiceTitle;
+
+    @FindBy(xpath = "//div[@id='terms-of-service-warning-box']/p")
+    private WebElement txtTermsOfServiceBody;
+
     @FindBy(id = "termsofservice")
     private WebElement chkBxTermsOfService;
 
@@ -27,6 +33,10 @@ public class CartPage {
     public WebElement getTxtPriceProduct2() { return txtPriceProduct2; }
 
     public WebElement getTxtSubTotal(){ return txtSubTotal; }
+
+    public WebElement getTxtTermsOfServiceTitle() { return txtTermsOfServiceTitle; }
+
+    public WebElement getTxtTermsOfServiceBody() { return txtTermsOfServiceBody; }
 
     public WebElement getChkBxTermsOfService() { return chkBxTermsOfService; }
 

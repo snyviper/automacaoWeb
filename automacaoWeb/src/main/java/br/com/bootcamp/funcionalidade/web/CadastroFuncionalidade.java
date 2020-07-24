@@ -18,7 +18,7 @@ public class CadastroFuncionalidade extends BaseTest {
     }
 
     public void preencheDadosERegistra(){
-        new Credentials(faker.internet().emailAddress(), faker.internet().password());
+        Credentials.setCredentials(faker.internet().emailAddress(), faker.internet().password());
         wait.until(ExpectedConditions.elementToBeClickable(cadastroPage.getBtnRegister()));
         cadastroPage.getRbGenderM().click();
         cadastroPage.getTxtFirstName().sendKeys(faker.name().firstName());
@@ -29,9 +29,7 @@ public class CadastroFuncionalidade extends BaseTest {
         cadastroPage.getBtnRegister().click();
     }
 
-    public void verificaMensagem(String mensagem){
-        Assert.assertEquals(cadastroPage.getMsgResult(), mensagem);
-    }
+    public void verificaMensagem(String mensagem){ Assert.assertEquals(cadastroPage.getMsgResult(), mensagem); }
 
     public void voltarParaHomePage(){ cadastroPage.getImgHome().click(); }
 }

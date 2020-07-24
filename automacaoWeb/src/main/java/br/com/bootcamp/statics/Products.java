@@ -1,19 +1,19 @@
 package br.com.bootcamp.statics;
 
-public class Products {
-    static private String name1 = "";
-    static private String name2 = "";
-    static private float price1 = 0;
-    static private float price2 = 0;
-    static private float priceSubTotal = 0;
+public abstract class Products {
+    private static String name1 = "";
+    private static String name2 = "";
+    private static float price1 = 0;
+    private static float price2 = 0;
+    private static float priceSubTotal = 0;
 
-    public Products(){}
-    public Products(String name, float price){
-        this.name1 = name;
-        this.price1 = price;
-        this.name2 = "";
-        this.price2 = 0;
-        this.priceSubTotal = price;
+
+    public static void addFirstProduct(String name, float price){
+        name1 = name;
+        price1 = price;
+        name2 = "";
+        price2 = 0;
+        priceSubTotal = price;
     }
     public static void addSecondProduct(String name, float price){
         if(name2.equals("")){

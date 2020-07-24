@@ -9,8 +9,11 @@ public class HomePage {
 	
 	public HomePage(WebDriver webDriver) { PageFactory.initElements(webDriver, this); }
 
-	@FindBy(xpath = "//a[@href='/customer/info' and text()!='My account']")
+	@FindBy(xpath = "//div[@class='header-links']/descendant::a[@class='account']")
 	private WebElement btnEmail;
+
+	@FindBy(xpath = "//li[@id='topcartlink']/a")
+	private WebElement txtShoppingCart;
 
 	@FindBy(xpath = "//div[@class='product-grid home-page-product-grid']" +
 			"/child::div[3]/descendant::h2[@class='product-title']/child::a")
@@ -25,14 +28,6 @@ public class HomePage {
 	private WebElement btnAddToCartSecondItem;
 
 	@FindBy(xpath = "//div[@class='product-grid home-page-product-grid']" +
-			"/child::div[4]/descendant::h2[@class='product-title']/child::a")
-	private WebElement txtThirdProductName;
-
-	@FindBy(xpath = "//div[@class='product-grid home-page-product-grid']" +
-			"/child::div[4]/descendant::span[@class='price actual-price']")
-	private WebElement txtThirdProductPrice;
-
-	@FindBy(xpath = "//div[@class='product-grid home-page-product-grid']" +
 			"/child::div[4]/descendant::input[@value='Add to cart']")
 	private WebElement btnAddToCartThirdItem;
 
@@ -44,15 +39,13 @@ public class HomePage {
 
 	public WebElement getBtnEmail(){ return btnEmail; }
 
+	public WebElement getTxtShoppingCart() { return txtShoppingCart; }
+
 	public WebElement getTxtSecondProductName(){ return txtSecondProductName; }
 
 	public WebElement getTxtSecondProductPrice(){ return txtSecondProductPrice; }
 
 	public WebElement getBtnAddToCartSecondItem(){ return btnAddToCartSecondItem; }
-
-	public WebElement getTxtThirdProductName(){ return txtThirdProductName; }
-
-	public WebElement getTxtThirdProductPrice(){ return txtThirdProductPrice; }
 
 	public WebElement getBtnAddToCartThirdItem(){ return btnAddToCartThirdItem; }
 

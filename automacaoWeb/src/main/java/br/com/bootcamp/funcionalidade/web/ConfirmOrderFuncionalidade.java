@@ -1,5 +1,6 @@
 package br.com.bootcamp.funcionalidade.web;
 
+import br.com.bootcamp.commons.SeleniumRobot;
 import br.com.bootcamp.pages.web.ConfirmOrderPage;
 import br.com.bootcamp.settings.BaseTest;
 import br.com.bootcamp.statics.OrderData;
@@ -10,21 +11,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConfirmOrderFuncionalidade extends BaseTest {
 
+    private static final String funcionalidade = "Confirm Order";
     private ConfirmOrderPage confirmOrderPage;
 
-    public ConfirmOrderFuncionalidade(){
-        this.confirmOrderPage = new ConfirmOrderPage(webDriver);
-    }
+    public ConfirmOrderFuncionalidade(){ this.confirmOrderPage = new ConfirmOrderPage(webDriver); }
 
     private void softAssertString(String expected, String actual, String attribute){
-        softly.assertThat(actual)
-                .withFailMessage("Confirm Order -> " + attribute + "\nExpected: " + expected + "\nActual: " + actual)
-                .isEqualTo(expected);
+        SeleniumRobot.softAssertString(expected, actual, funcionalidade, attribute);
     }
     private void softAssertString(String expected, String actual, String scope, String attribute){
-        softly.assertThat(actual)
-                .withFailMessage("Confirm Order -> " + scope + " -> " + attribute + "\nExpected: " + expected + "\nActual: " + actual)
-                .isEqualTo(expected);
+        SeleniumRobot.softAssertString(expected, actual, funcionalidade, scope, attribute);
     }
 
     public void verifyBillingColumn(){
@@ -32,14 +28,10 @@ public class ConfirmOrderFuncionalidade extends BaseTest {
         wait.until(ExpectedConditions.elementToBeClickable(confirmOrderPage.getTxtBillingCityZip()));
         softAssertString(OrderData.getCity() + " , " + OrderData.getZipCode(),
                 confirmOrderPage.getTxtBillingCityZip().getText(), scope, "City, Zip");
-        //Assert.assertEquals(OrderData.getCity() + " , " + OrderData.getZipCode(), confirmOrderPage.getTxtBillingCityZip().getText());
         softAssertString("Phone: " + OrderData.getPhoneNumber(),
                 confirmOrderPage.getTxtBillingPhone().getText(), scope, "Phone");
-        //Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), confirmOrderPage.getTxtBillingPhone().getText());
         softAssertString(OrderData.getAddress(), confirmOrderPage.getTxtBillingAddress().getText(), scope, "Address");
-        //Assert.assertEquals(OrderData.getAddress(), confirmOrderPage.getTxtBillingAddress().getText());
         softAssertString(OrderData.getCountry(), confirmOrderPage.getTxtBillingCountry().getText(), scope, "Country");
-        //Assert.assertEquals(OrderData.getCountry(), confirmOrderPage.getTxtBillingCountry().getText());
     }
 
     public void verifyShippingColumn(){
@@ -47,14 +39,10 @@ public class ConfirmOrderFuncionalidade extends BaseTest {
             String scope = "Shipping Column";
             softAssertString(OrderData.getCity() + " , " + OrderData.getZipCode(),
                     confirmOrderPage.getTxtShippingCityZip().getText(), scope, "City, Zip");
-            //Assert.assertEquals(OrderData.getCity() + " , " + OrderData.getZipCode(), confirmOrderPage.getTxtShippingCityZip().getText());
             softAssertString("Phone: " + OrderData.getPhoneNumber(),
                     confirmOrderPage.getTxtShippingPhone().getText(), scope, "Phone");
-            //Assert.assertEquals("Phone: " + OrderData.getPhoneNumber(), confirmOrderPage.getTxtShippingPhone().getText());
-            softAssertString(OrderData.getAddress(), confirmOrderPage.getTxtShippingAddress().getText(), scope, "Address");
-            //Assert.assertEquals(OrderData.getAddress(), confirmOrderPage.getTxtShippingAddress().getText());
+            softAssertString(OrderData.getAddress(),confirmOrderPage.getTxtShippingAddress().getText(), scope, "Address");
             softAssertString(OrderData.getCountry(), confirmOrderPage.getTxtShippingCountry().getText(), scope, "Country");
-            //Assert.assertEquals(OrderData.getCountry(), confirmOrderPage.getTxtShippingCountry().getText());
         }
     }
 
@@ -63,29 +51,29 @@ public class ConfirmOrderFuncionalidade extends BaseTest {
     }
 
     public void verifyShippingMethod(){
-        softAssertString(OrderData.getShippingMethod(), confirmOrderPage.getTxtShippingMethod().getText(), "Shipping Method");
-        //Assert.assertEquals(OrderData.getShippingMethod(), confirmOrderPage.getTxtShippingMethod().getText());
+        softAssertString(OrderData.getShippingMethod(),
+                confirmOrderPage.getTxtShippingMethod().getText(), "Shipping Method");
     }
 
     public void verifyProducts(){
         wait.until(ExpectedConditions.elementToBeClickable(confirmOrderPage.getTxtProduct2Name()));
         Assert.assertEquals(Products.getName1(), confirmOrderPage.getTxtProduct1Name().getText());
         Assert.assertEquals(Products.getName2(), confirmOrderPage.getTxtProduct2Name().getText());
-        Assert.assertEquals(Products.getPrice1(), Float.parseFloat(confirmOrderPage.getTxtProduct1Price().getText()), delta);
-        Assert.assertEquals(Products.getPrice2(), Float.parseFloat(confirmOrderPage.getTxtProduct2Price().getText()), delta);
-        Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()), delta);
+        Assert.assertEquals(Products.getPrice1(), Float.parseFloat(confirmOrderPage.getTxtProduct1Price().getText()), deltaFloat);
+        Assert.assertEquals(Products.getPrice2(), Float.parseFloat(confirmOrderPage.getTxtProduct2Price().getText()), deltaFloat);
+        Assert.assertEquals(Products.getSubTotal(), Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()), deltaFloat);
         if(webDriver.findElements(By.xpath(confirmOrderPage.getTxtFeeTaxXPath())).size() > 0){
             Assert.assertEquals(Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()) +
                             Float.parseFloat(confirmOrderPage.getTxtFeeShipping().getText()) +
                             Float.parseFloat(confirmOrderPage.getTxtFeePaymentMethod().getText()) +
                             Float.parseFloat(confirmOrderPage.getTxtFeeTax().getText()),
-                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()),delta);
+                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()), deltaFloat);
         }
         else{
             Assert.assertEquals(Float.parseFloat(confirmOrderPage.getTxtSubTotal().getText()) +
                             Float.parseFloat(confirmOrderPage.getTxtFeeShipping().getText()) +
                             Float.parseFloat(confirmOrderPage.getTxtFeePaymentMethod().getText()),
-                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()),delta);
+                    Float.parseFloat(confirmOrderPage.getTxtTotal().getText()), deltaFloat);
         }
     }
 

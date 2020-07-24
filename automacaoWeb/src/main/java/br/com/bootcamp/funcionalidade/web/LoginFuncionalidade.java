@@ -18,8 +18,6 @@ public class LoginFuncionalidade extends BaseTest {
 		loginPage.getTxtSenha().sendKeys(Credentials.getSenha());
 	}
 
-	public void clickLogIn(){
-		loginPage.getBtnLogIn().click();
-	}
+	public void clickLogIn(){ loginPage.getBtnLogIn().click(); }
 
 }
